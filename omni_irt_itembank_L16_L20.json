@@ -1,0 +1,1237 @@
+{
+  "_meta": {
+    "version": "2.0",
+    "created": "2026-04-07",
+    "description": "OMNI-LEARN OS IRT自适应入学测试题库 · L16-L20 (A1 Consolidation)",
+    "level_range": "L16-L20",
+    "cefr": "A1 Consolidation",
+    "total_items": 55,
+    "instruction_language": "bilingual — 主测题双语（zh+en并列），确认题纯中文",
+
+    "design_notes": {
+      "vs_L11_L15": [
+        "①语法核心转变：L16-20是规则语法密度最高的阶段。L16引入规则动词一般过去式(-ed)，L17攻克高频不规则过去式(went/came/had/saw/ate/got)，L18巩固第三人称单数现在式(-s/-es)，L19引入一般过去时疑问句(Did...? Yes/No)，L20引入there was/were及过去/现在对比",
+        "②词汇从修饰语向功能词迁移：短语动词(wake up/put on/give back)、时间介词精确用法(in the morning/on Monday/at night)、频率短语(once a week/twice a month)、程度副词组合(quite/rather/really)",
+        "③听力升级到4-6句连贯语篇，双人对话出现更长回合，推断题(inference)成为标配而非例外",
+        "④阅读出现5-8句语篇，首次引入main_idea题型（这段话主要说的是什么）和title_choice题型（选最合适的标题），从信息提取升级到语篇整体理解"
+      ],
+      "grammar_progression": {
+        "L16": "规则动词过去式 -ed：walked/played/watched/cooked。重点：发音规则(t/d/id)不测，只测拼写和时态选择",
+        "L17": "高频不规则动词过去式：went/came/had/saw/ate/got/made/took。重点：与L16规则形式对比，排除过度规则化错误(goed/eated)",
+        "L18": "第三人称单数现在式 -s/-es：she likes/he watches/it goes。重点：第三人称单数vs其他人称的对比；watches/goes等特殊拼写",
+        "L19": "一般过去时疑问句：Did you...? Yes, I did / No, I didn't。重点：Did后接动词原形（非过去式）；否定didn't",
+        "L20": "there was/were + 过去/现在对比：There was a park here. Now there is a shopping centre。重点：was/were人称配合；时态对比"
+      },
+      "difficulty_band": "L16主测题 b≈1.1~1.3 → L20主测题 b≈1.8~2.0，每级递增约0.2。确认题比当前级别低约1.0，与L15确认题（b≈-0.3~-0.4）平滑衔接",
+      "bilingual_ux_note": "与L11-15一致：主测题双语，确认题纯中文，确认题界面英文区域以省略号替代"
+    },
+
+    "adaptive_strategy": {
+      "name": "2-wrong-1-confirm",
+      "confirm_fallback": "确认题难度 = 当前级别 - 2（最低L16）。若学生在L16也需确认，跨库使用L11-15题库的L15确认题"
+    },
+
+    "dimension_weights": {
+      "vocabulary": 0.35,
+      "listening": 0.30,
+      "reading": 0.25,
+      "grammar": 0.10
+    },
+
+    "item_types_new_in_L16_L20": {
+      "main_idea": "读完语篇后选出主旨句或最佳概括（L18-20阅读维度）",
+      "title_choice": "为语篇选出最合适的标题（L19-20阅读维度）",
+      "past_tense_gap_fill": "句子填入正确过去式形式（L16-17语法维度延伸至词汇维度）",
+      "yes_no_question_response": "听到Did...?疑问句，选出正确的Yes/No简答（L19听力维度）",
+      "time_expression_match": "听句子中的时间表达，匹配到正确的时间/频率（L16-17词汇维度）",
+      "phrasal_verb_picture": "看图选出正确的短语动词（L18-20词汇维度）"
+    }
+  },
+
+  "items": [
+
+    {
+      "item_id": "L16_VOC_P01",
+      "level": 16,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，选出你听到的意思",
+      "instruction_en": "Listen and choose the correct picture.",
+      "audio_content": "She woke up late and missed the school bus.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "girl_woke_up_late_missed_bus", "img": "img:girl_late_bus"},
+        {"id": "B", "type": "picture", "content": "girl_woke_up_early_caught_bus", "img": "img:girl_early_bus"},
+        {"id": "C", "type": "picture", "content": "girl_woke_up_late_walked_school", "img": "img:girl_late_walk"},
+        {"id": "D", "type": "picture", "content": "boy_woke_up_late_missed_bus", "img": "img:boy_late_bus"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:She woke up late and missed the school bus."],
+      "skill_focus": "短语动词 wake up + 过去式 woke/missed，因果关系",
+      "distractor_logic": "B=时间相反(early/caught)；C=结果不同(walked)；D=主语错(boy)",
+      "irt": {"b": 1.1, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L16_VOC_P02",
+      "level": 16,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "time_expression_match",
+      "instruction_zh": "听一听，选出正确的时间表达",
+      "instruction_en": "Listen and choose the correct time expression.",
+      "audio_content": "I go swimming twice a week.",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "每周两次"},
+        {"id": "B", "type": "text_zh", "content": "每周一次"},
+        {"id": "C", "type": "text_zh", "content": "每两周一次"},
+        {"id": "D", "type": "text_zh", "content": "每天两次"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:I go swimming twice a week."],
+      "skill_focus": "频率短语 twice a week — once/twice/three times + a day/week/month",
+      "distractor_logic": "once(一次) vs twice(两次)，a week vs every two weeks vs a day，需精确听twice和week",
+      "irt": {"b": 1.2, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L16_VOC_C01",
+      "level": 16,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，选出你听到的意思",
+      "audio_content": "She hardly ever watches TV because she prefers reading.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "girl_reading_not_tv", "img": "img:girl_reading_prefers"},
+        {"id": "B", "type": "picture", "content": "girl_watching_tv_often", "img": "img:girl_tv_often"},
+        {"id": "C", "type": "picture", "content": "girl_reading_and_tv", "img": "img:girl_both"},
+        {"id": "D", "type": "picture", "content": "girl_never_reads", "img": "img:girl_no_read"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:She hardly ever watches TV because she prefers reading."],
+      "skill_focus": "确认题 — hardly ever + prefer（回退L14-15难度）",
+      "distractor_logic": "与L14_VOC_P01相同刺激，作为L16的确认题复用",
+      "irt": {"b": 0.1, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L16_LIS_P01",
+      "level": 16,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "instruction_en": "Listen and answer the question.",
+      "audio_content": "Last weekend, our family visited Grandma. We travelled by train. It took about two hours. Grandma made a big lunch for us and we stayed until six o'clock.",
+      "question_zh": "他们怎么去奶奶家的？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "开车"},
+        {"id": "B", "type": "text_zh", "content": "坐火车"},
+        {"id": "C", "type": "text_zh", "content": "坐公共汽车"},
+        {"id": "D", "type": "text_zh", "content": "步行"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:Last weekend, our family visited Grandma. We travelled by train. It took about two hours. Grandma made a big lunch for us and we stayed until six o'clock."],
+      "skill_focus": "5句叙事段落 — 过去时态，by train交通方式提取",
+      "distractor_logic": "全段均为过去时，需定位by train；two hours是干扰数字信息",
+      "irt": {"b": 1.1, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L16_LIS_P02",
+      "level": 16,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_dialogue",
+      "instruction_zh": "听一段对话，回答问题",
+      "instruction_en": "Listen to the dialogue and answer the question.",
+      "audio_content": "A: Did you watch the game last night? B: No, I went to bed early. I had a test this morning. A: Oh, we won! It was amazing.",
+      "question_zh": "B昨晚为什么没看比赛？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "因为他不喜欢看球"},
+        {"id": "B", "type": "text_zh", "content": "因为今天早上有考试，早早睡了"},
+        {"id": "C", "type": "text_zh", "content": "因为他已经知道比赛结果"},
+        {"id": "D", "type": "text_zh", "content": "因为电视坏了"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts_dialogue:Did you watch the game last night? No, I went to bed early. I had a test this morning. Oh, we won! It was amazing."],
+      "skill_focus": "过去时三句对话 — 整合went to bed early + had a test两个信息点",
+      "distractor_logic": "B需要整合两句信息（went to bed early的原因是had a test），不能只取一句",
+      "irt": {"b": 1.2, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L16_LIS_C01",
+      "level": 16,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "audio_content": "It's Saturday morning. Mike wants to go to the park, but it's raining. So he stays at home and plays video games with his brother instead.",
+      "question_zh": "Mike为什么没有去公园？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "公园关门了"},
+        {"id": "B", "type": "text_zh", "content": "他想在家打游戏"},
+        {"id": "C", "type": "text_zh", "content": "在下雨"},
+        {"id": "D", "type": "text_zh", "content": "他不想去公园"}
+      ],
+      "correct": "C",
+      "media_required": ["audio_tts:It's Saturday morning. Mike wants to go to the park, but it's raining. So he stays at home and plays video games with his brother instead."],
+      "skill_focus": "确认题 — 因果叙事（回退L14难度）",
+      "distractor_logic": "与L14_LIS_P02相同刺激",
+      "irt": {"b": 0.2, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L16_READ_P01",
+      "level": 16,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read the passage and answer the question.",
+      "stimulus_text": "Last Saturday, Dan cleaned his room, washed the dishes and helped his mum cook dinner. His mum was very happy. She said Dan was the best helper in the family.",
+      "question_zh": "Dan周六做了几件家务？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "一件"},
+        {"id": "B", "type": "text_zh", "content": "两件"},
+        {"id": "C", "type": "text_zh", "content": "三件"},
+        {"id": "D", "type": "text_zh", "content": "四件"}
+      ],
+      "correct": "C",
+      "media_required": [],
+      "skill_focus": "过去时语篇 — 提取动作列表数量(cleaned/washed/helped)，规则过去式阅读",
+      "distractor_logic": "helped his mum cook是一件事(帮妈妈)还是两件(帮忙+做饭)？需理解helped...cook是一个动作",
+      "irt": {"b": 1.1, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L16_READ_P02",
+      "level": 16,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read and answer the question.",
+      "stimulus_text": "On Monday, Lisa visited her friend. On Wednesday, she played tennis. On Friday evening, she watched a film at home. She had a very busy week.",
+      "question_zh": "Lisa在星期几打网球？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "星期一"},
+        {"id": "B", "type": "text_zh", "content": "星期三"},
+        {"id": "C", "type": "text_zh", "content": "星期五"},
+        {"id": "D", "type": "text_zh", "content": "星期六"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "时间表达+活动提取 — on Monday/Wednesday/Friday，过去时扫描阅读",
+      "distractor_logic": "三个星期各有活动，需精确匹配played tennis与Wednesday",
+      "irt": {"b": 1.2, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L16_READ_C01",
+      "level": 16,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "stimulus_text": "Jack and his dad go fishing every Sunday. Last Sunday, Jack caught a very big fish. His dad was very proud of him.",
+      "question_zh": "上周日发生了什么特别的事？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "Jack和爸爸去钓鱼了"},
+        {"id": "B", "type": "text_zh", "content": "Jack钓到了一条很大的鱼"},
+        {"id": "C", "type": "text_zh", "content": "爸爸钓到了一条大鱼"},
+        {"id": "D", "type": "text_zh", "content": "他们没钓到任何鱼"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — every vs last对比（回退L14难度）",
+      "distractor_logic": "A是常规行为，B是特别事件",
+      "irt": {"b": 0.1, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L16_GRAM_P01",
+      "level": 16,
+      "dimension": "grammar",
+      "role": "primary",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子语法正确",
+      "instruction_en": "Choose the correct word to complete the sentence.",
+      "stimulus_text": "Yesterday, I _____ my homework and then watched TV.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "finish"},
+        {"id": "B", "type": "text_en", "content": "finished"},
+        {"id": "C", "type": "text_en", "content": "finishing"},
+        {"id": "D", "type": "text_en", "content": "have finished"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "规则动词过去式 -ed — Yesterday是明确时态信号",
+      "distractor_logic": "A=原形；C=分词；D=现在完成时。Yesterday触发过去时，finish→finished规则变化",
+      "irt": {"b": 1.1, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L16_GRAM_C01",
+      "level": 16,
+      "dimension": "grammar",
+      "role": "confirm",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子语法正确",
+      "stimulus_text": "Last night, we _____ to the park and played football.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "go"},
+        {"id": "B", "type": "text_en", "content": "goes"},
+        {"id": "C", "type": "text_en", "content": "went"},
+        {"id": "D", "type": "text_en", "content": "going"}
+      ],
+      "correct": "C",
+      "media_required": [],
+      "skill_focus": "确认题 — 过去式went（回退L15难度，go为不规则）",
+      "distractor_logic": "Last night是明确信号；注意此处go是不规则，确认学生知道went",
+      "irt": {"b": 0.1, "a": 0.7, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L17_VOC_P01",
+      "level": 17,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，选出你听到的意思",
+      "instruction_en": "Listen and choose the correct picture.",
+      "audio_content": "She took off her coat and put it on the chair.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "girl_took_off_coat_chair", "img": "img:girl_coat_chair"},
+        {"id": "B", "type": "picture", "content": "girl_put_on_coat_chair", "img": "img:girl_put_on_coat"},
+        {"id": "C", "type": "picture", "content": "girl_took_off_coat_floor", "img": "img:girl_coat_floor"},
+        {"id": "D", "type": "picture", "content": "boy_took_off_coat_chair", "img": "img:boy_coat_chair"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:She took off her coat and put it on the chair."],
+      "skill_focus": "短语动词对比 take off vs put on，方向相反",
+      "distractor_logic": "B=动作反转(put on)；C=地点错(floor)；D=主语错(boy)",
+      "irt": {"b": 1.3, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L17_VOC_P02",
+      "level": 17,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "time_expression_match",
+      "instruction_zh": "听一听，选出正确的时间表达",
+      "instruction_en": "Listen and choose the correct time expression.",
+      "audio_content": "We visited my grandparents three times last month.",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "上个月去了三次"},
+        {"id": "B", "type": "text_zh", "content": "上个月去了两次"},
+        {"id": "C", "type": "text_zh", "content": "每月去三次"},
+        {"id": "D", "type": "text_zh", "content": "去年去了三次"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:We visited my grandparents three times last month."],
+      "skill_focus": "频率+时间范围 — three times + last month（过去时间段）",
+      "distractor_logic": "B=次数错(two)；C=时态混淆(every month≠last month)；D=时间范围错(last year)",
+      "irt": {"b": 1.3, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L17_VOC_C01",
+      "level": 17,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "time_expression_match",
+      "instruction_zh": "听一听，选出正确的时间表达",
+      "audio_content": "I go swimming twice a week.",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "每周两次"},
+        {"id": "B", "type": "text_zh", "content": "每周一次"},
+        {"id": "C", "type": "text_zh", "content": "每两周一次"},
+        {"id": "D", "type": "text_zh", "content": "每天两次"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:I go swimming twice a week."],
+      "skill_focus": "确认题 — twice a week（回退L16难度）",
+      "distractor_logic": "与L16_VOC_P02相同刺激，用作确认题",
+      "irt": {"b": 0.2, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L17_LIS_P01",
+      "level": 17,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "instruction_en": "Listen and answer the question.",
+      "audio_content": "On Sunday morning, Lily got up early and made breakfast for the whole family. Then her dad took her to the bookshop. She bought two books about animals. In the evening, she started reading the first one.",
+      "question_zh": "Lily在书店买了什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "两本关于动物的书"},
+        {"id": "B", "type": "text_zh", "content": "一本关于动物的书"},
+        {"id": "C", "type": "text_zh", "content": "两本故事书"},
+        {"id": "D", "type": "text_zh", "content": "一本动物书和一本故事书"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:On Sunday morning, Lily got up early and made breakfast for the whole family. Then her dad took her to the bookshop. She bought two books about animals. In the evening, she started reading the first one."],
+      "skill_focus": "5句过去时段落 — 定位bought信息，不规则过去式got/made/took/bought综合",
+      "distractor_logic": "B=数量错(one)；C/D=类别错(story books)；the first one暗示two books但不影响答题",
+      "irt": {"b": 1.3, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L17_LIS_P02",
+      "level": 17,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "inference_listening",
+      "instruction_zh": "听一段话，然后推断",
+      "instruction_en": "Listen and make an inference.",
+      "audio_content": "A: You look tired today. B: Yeah, I couldn't sleep last night. There was a loud party next door. A: Oh no, that's awful. B: I know. I finally fell asleep at two in the morning.",
+      "question_zh": "B为什么今天看起来很累？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "因为他昨晚参加了派对"},
+        {"id": "B", "type": "text_zh", "content": "因为隔壁派对太吵，他很晚才睡着"},
+        {"id": "C", "type": "text_zh", "content": "因为他在学习到很晚"},
+        {"id": "D", "type": "text_zh", "content": "因为他不喜欢睡觉"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts_dialogue:You look tired today. Yeah, I couldn't sleep last night. There was a loud party next door. Oh no, that's awful. I know. I finally fell asleep at two in the morning."],
+      "skill_focus": "推断+因果整合 — couldn't sleep + loud party + fell asleep at two串联",
+      "distractor_logic": "A是常见误读（next door≠B自己的派对）；C无中生有；需整合three信息点",
+      "irt": {"b": 1.4, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L17_LIS_C01",
+      "level": 17,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "audio_content": "Last weekend, our family visited Grandma. We travelled by train. It took about two hours.",
+      "question_zh": "他们怎么去奶奶家的？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "开车"},
+        {"id": "B", "type": "text_zh", "content": "坐火车"},
+        {"id": "C", "type": "text_zh", "content": "坐公共汽车"},
+        {"id": "D", "type": "text_zh", "content": "步行"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:Last weekend, our family visited Grandma. We travelled by train. It took about two hours."],
+      "skill_focus": "确认题 — 过去时交通方式提取（回退L16难度，缩短段落）",
+      "distractor_logic": "by train直接出现，two hours是干扰信息",
+      "irt": {"b": 0.2, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L17_READ_P01",
+      "level": 17,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read the passage and answer the question.",
+      "stimulus_text": "Last summer, our class went to a farm for the day. We saw cows, sheep and horses. We also fed the ducks near the pond. Our teacher took lots of photos. On the way home, everyone fell asleep on the bus.",
+      "question_zh": "他们在农场附近的池塘旁做了什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "游泳"},
+        {"id": "B", "type": "text_zh", "content": "喂鸭子"},
+        {"id": "C", "type": "text_zh", "content": "拍照片"},
+        {"id": "D", "type": "text_zh", "content": "看牛和羊"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "5句过去时语篇 — 定位near the pond的活动，排除其他动作",
+      "distractor_logic": "C是老师做的；D是在农场做的不是池塘旁；near the pond是关键定语",
+      "irt": {"b": 1.3, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L17_READ_P02",
+      "level": 17,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read and answer the question.",
+      "stimulus_text": "Tom had a strange dream last night. In his dream, he flew over his town and saw everything from above. He waved to his friends in the street, but they couldn't see him. He woke up feeling happy but also a little confused.",
+      "question_zh": "Tom醒来后有什么感受？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "只是觉得开心"},
+        {"id": "B", "type": "text_zh", "content": "只是觉得困惑"},
+        {"id": "C", "type": "text_zh", "content": "开心又有点困惑"},
+        {"id": "D", "type": "text_zh", "content": "害怕和困惑"}
+      ],
+      "correct": "C",
+      "media_required": [],
+      "skill_focus": "情绪词语复合表达 — happy but also a little confused，but连接两种情绪",
+      "distractor_logic": "A/B各取一半；D是无中生有(scared)。but also结构需要同时捕捉两个情绪",
+      "irt": {"b": 1.4, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L17_READ_C01",
+      "level": 17,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "stimulus_text": "Last Saturday, Dan cleaned his room, washed the dishes and helped his mum cook dinner. His mum was very happy.",
+      "question_zh": "Dan妈妈的心情怎么样？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "很开心"},
+        {"id": "B", "type": "text_zh", "content": "很生气"},
+        {"id": "C", "type": "text_zh", "content": "很担心"},
+        {"id": "D", "type": "text_zh", "content": "很累"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "确认题 — 过去时语篇情绪提取（回退L16难度）",
+      "distractor_logic": "very happy直接出现在末句",
+      "irt": {"b": 0.2, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L17_GRAM_P01",
+      "level": 17,
+      "dimension": "grammar",
+      "role": "primary",
+      "item_type": "grammar_error_spot",
+      "instruction_zh": "找出句子中的语法错误，选出正确的版本",
+      "instruction_en": "Find the grammar mistake. Choose the correct version.",
+      "stimulus_text": "Last night, I eated a big dinner and then goed to bed.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "Last night, I eat a big dinner and then go to bed."},
+        {"id": "B", "type": "text_en", "content": "Last night, I ate a big dinner and then went to bed."},
+        {"id": "C", "type": "text_en", "content": "Last night, I eating a big dinner and then going to bed."},
+        {"id": "D", "type": "text_en", "content": "Last night, I eaten a big dinner and then gone to bed."}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "不规则过去式识别 — eat→ate / go→went，排除过度规则化(eated/goed)",
+      "distractor_logic": "A=换成现在时；C=换成进行时；D=过去分词(eaten/gone)非过去式",
+      "irt": {"b": 1.3, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L17_GRAM_C01",
+      "level": 17,
+      "dimension": "grammar",
+      "role": "confirm",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子语法正确",
+      "stimulus_text": "Yesterday, I _____ my homework and then watched TV.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "finish"},
+        {"id": "B", "type": "text_en", "content": "finished"},
+        {"id": "C", "type": "text_en", "content": "finishing"},
+        {"id": "D", "type": "text_en", "content": "finishes"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — 规则动词过去式 finish→finished（回退L16难度）",
+      "distractor_logic": "Yesterday信号清楚，finish是规则动词直接加-ed",
+      "irt": {"b": 0.2, "a": 0.7, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L18_VOC_P01",
+      "level": 18,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "phrasal_verb_picture",
+      "instruction_zh": "看图，选出描述这张图的词组",
+      "instruction_en": "Look at the picture. Choose the correct phrase.",
+      "picture_shown": "boy_giving_book_back_to_teacher",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "give back"},
+        {"id": "B", "type": "text_en", "content": "give up"},
+        {"id": "C", "type": "text_en", "content": "pick up"},
+        {"id": "D", "type": "text_en", "content": "put down"}
+      ],
+      "correct": "A",
+      "media_required": ["img:boy_giving_book_back_teacher"],
+      "skill_focus": "短语动词含义辨析 — give back/give up/pick up/put down",
+      "distractor_logic": "四个动词词组结构相似，语义完全不同；give back=归还是核心词义",
+      "irt": {"b": 1.4, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L18_VOC_P02",
+      "level": 18,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，选出你听到的意思",
+      "instruction_en": "Listen and choose the correct picture.",
+      "audio_content": "My sister practises the piano for an hour every morning before school.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "girl_piano_morning_before_school", "img": "img:girl_piano_morning"},
+        {"id": "B", "type": "picture", "content": "girl_piano_evening_after_school", "img": "img:girl_piano_evening"},
+        {"id": "C", "type": "picture", "content": "girl_piano_morning_after_school", "img": "img:girl_piano_after"},
+        {"id": "D", "type": "picture", "content": "boy_piano_morning_before_school", "img": "img:boy_piano_morning"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:My sister practises the piano for an hour every morning before school."],
+      "skill_focus": "时间表达精确定位 — in the morning + before school双重时间条件",
+      "distractor_logic": "B=时间段错(evening/after)；C=before/after混淆；D=主语错(boy≠my sister)",
+      "irt": {"b": 1.5, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L18_VOC_C01",
+      "level": 18,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "phrasal_verb_picture",
+      "instruction_zh": "看图，选出描述这张图的词组",
+      "picture_shown": "girl_taking_off_coat",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "take off"},
+        {"id": "B", "type": "text_en", "content": "put on"},
+        {"id": "C", "type": "text_en", "content": "give back"},
+        {"id": "D", "type": "text_en", "content": "pick up"}
+      ],
+      "correct": "A",
+      "media_required": ["img:girl_taking_off_coat"],
+      "skill_focus": "确认题 — take off（回退L17难度）",
+      "distractor_logic": "take off vs put on方向对立，最基础短语动词对",
+      "irt": {"b": 0.3, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L18_LIS_P01",
+      "level": 18,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "instruction_en": "Listen and answer the question.",
+      "audio_content": "Every day, Anna gets up at half past six. She brushes her teeth, gets dressed and eats breakfast. Then she walks to school with her neighbour Sam. Anna likes walking because they always talk about funny things on the way.",
+      "question_zh": "Anna为什么喜欢走路去学校？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "因为走路对身体好"},
+        {"id": "B", "type": "text_zh", "content": "因为学校离家很近"},
+        {"id": "C", "type": "text_zh", "content": "因为她和Sam一路上聊有趣的事"},
+        {"id": "D", "type": "text_zh", "content": "因为她不喜欢坐公共汽车"}
+      ],
+      "correct": "C",
+      "media_required": ["audio_tts:Every day, Anna gets up at half past six. She brushes her teeth, gets dressed and eats breakfast. Then she walks to school with her neighbour Sam. Anna likes walking because they always talk about funny things on the way."],
+      "skill_focus": "第三人称单数现在式 — gets/brushes/walks/likes/talk混合使用",
+      "distractor_logic": "A/B/D均无原文依据；because后的原因句在段落末尾，需听到最后",
+      "irt": {"b": 1.4, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L18_LIS_P02",
+      "level": 18,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "inference_listening",
+      "instruction_zh": "听一段话，然后推断",
+      "instruction_en": "Listen and make an inference.",
+      "audio_content": "A: Excuse me, does this bus go to the city centre? B: No, you need the number 12. This is the number 7. A: Oh no. When does the number 12 come? B: About ten minutes. It stops just across the road.",
+      "question_zh": "A接下来最可能做什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "坐7路公共汽车"},
+        {"id": "B", "type": "text_zh", "content": "走去市中心"},
+        {"id": "C", "type": "text_zh", "content": "去对面等12路"},
+        {"id": "D", "type": "text_zh", "content": "打电话叫出租车"}
+      ],
+      "correct": "C",
+      "media_required": ["audio_tts_dialogue:Excuse me, does this bus go to the city centre? No, you need the number 12. This is the number 7. Oh no. When does the number 12 come? About ten minutes. It stops just across the road."],
+      "skill_focus": "场景推断 — 从It stops just across the road + ten minutes推断A会等12路",
+      "distractor_logic": "A已经被告知7路不对；B/D无依据；关键是across the road提示去对面等",
+      "irt": {"b": 1.5, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L18_LIS_C01",
+      "level": 18,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "inference_listening",
+      "instruction_zh": "听一段话，然后推断",
+      "audio_content": "A: Hi, are you ready to order? B: Yes, I'd like the pasta, please. A: And to drink? B: Just water, thanks. A: Great, I'll bring that right away.",
+      "question_zh": "这段对话最可能发生在哪里？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "餐厅"},
+        {"id": "B", "type": "text_zh", "content": "超市"},
+        {"id": "C", "type": "text_zh", "content": "学校食堂"},
+        {"id": "D", "type": "text_zh", "content": "家里"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts_dialogue:Hi, are you ready to order? Yes, I'd like the pasta, please. And to drink? Just water, thanks. Great, I'll bring that right away."],
+      "skill_focus": "确认题 — 场景推断（回退L15难度）",
+      "distractor_logic": "与L15_LIS_P01相同刺激",
+      "irt": {"b": 0.4, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L18_READ_P01",
+      "level": 18,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read the passage and answer the question.",
+      "stimulus_text": "My dad works at a hospital. He usually starts work at seven in the morning and finishes at three in the afternoon. He often brings home stories about his patients. My mum says he is a great listener. I think so too, because he always has time for us.",
+      "question_zh": "这段话主要说的是什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "爸爸的工作时间"},
+        {"id": "B", "type": "text_zh", "content": "爸爸是一个好爸爸也是好医生"},
+        {"id": "C", "type": "text_zh", "content": "医院的工作很辛苦"},
+        {"id": "D", "type": "text_zh", "content": "妈妈对爸爸的看法"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "main_idea题型首次出现 — 综合全段内容提炼主旨，不能只看某一句",
+      "distractor_logic": "A/D只涉及段落某一部分；C是读者推断非原文主旨；B整合了工作+great listener+has time for us",
+      "irt": {"b": 1.4, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L18_READ_P02",
+      "level": 18,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read and answer the question.",
+      "stimulus_text": "Every morning, Jake's mum wakes him up at seven. He gets dressed quickly, eats his breakfast and picks up his school bag. His little sister takes much longer to get ready. She changes her clothes three times and can never find her shoes.",
+      "question_zh": "Jake的妹妹和Jake的早晨有什么不同？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "妹妹起床比Jake早"},
+        {"id": "B", "type": "text_zh", "content": "妹妹准备起来花的时间比Jake长很多"},
+        {"id": "C", "type": "text_zh", "content": "妹妹比Jake先吃完早饭"},
+        {"id": "D", "type": "text_zh", "content": "妹妹不用去上学"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "对比阅读 — much longer + changes three times + can never find，理解对比关系",
+      "distractor_logic": "A/C与原文矛盾；D无中生有；much longer是关键对比词",
+      "irt": {"b": 1.5, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L18_READ_C01",
+      "level": 18,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "stimulus_text": "My dad works at a hospital. He usually starts work at seven in the morning and finishes at three in the afternoon.",
+      "question_zh": "爸爸几点下班？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "上午七点"},
+        {"id": "B", "type": "text_zh", "content": "下午三点"},
+        {"id": "C", "type": "text_zh", "content": "下午七点"},
+        {"id": "D", "type": "text_zh", "content": "文中没有说"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — 时间信息提取，区分starts/finishes（回退L16-17难度）",
+      "distractor_logic": "A是上班时间而非下班时间，starts/finishes是关键区分词",
+      "irt": {"b": 0.3, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L18_GRAM_P01",
+      "level": 18,
+      "dimension": "grammar",
+      "role": "primary",
+      "item_type": "grammar_error_spot",
+      "instruction_zh": "找出句子中的语法错误，选出正确的版本",
+      "instruction_en": "Find the grammar mistake. Choose the correct version.",
+      "stimulus_text": "My sister play the piano every day and she also sing in the school choir.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "My sister plays the piano every day and she also sings in the school choir."},
+        {"id": "B", "type": "text_en", "content": "My sister played the piano every day and she also sang in the school choir."},
+        {"id": "C", "type": "text_en", "content": "My sister is playing the piano every day and she also is singing in the school choir."},
+        {"id": "D", "type": "text_en", "content": "My sister play the piano every days and she also singing in the school choir."}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "第三人称单数 -s 缺失 — play→plays / sing→sings",
+      "distractor_logic": "B=换成过去时（every day暗示习惯，非过去）；C=换成进行时；D=错上加错",
+      "irt": {"b": 1.4, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L18_GRAM_C01",
+      "level": 18,
+      "dimension": "grammar",
+      "role": "confirm",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子语法正确",
+      "stimulus_text": "She _____ to school every day by bus.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "go"},
+        {"id": "B", "type": "text_en", "content": "goes"},
+        {"id": "C", "type": "text_en", "content": "went"},
+        {"id": "D", "type": "text_en", "content": "going"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — 第三人称单数 she → goes（回退L17-18难度）",
+      "distractor_logic": "every day暗示习惯性动作，she是第三人称单数，go→goes",
+      "irt": {"b": 0.4, "a": 0.7, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L19_VOC_P01",
+      "level": 19,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，选出你听到的意思",
+      "instruction_en": "Listen and choose the correct picture.",
+      "audio_content": "He looked through the window and saw his friends playing outside.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "boy_looking_through_window_friends_outside", "img": "img:boy_window_friends"},
+        {"id": "B", "type": "picture", "content": "boy_looking_out_of_door_friends_outside", "img": "img:boy_door_friends"},
+        {"id": "C", "type": "picture", "content": "boy_looking_through_window_empty_outside", "img": "img:boy_window_empty"},
+        {"id": "D", "type": "picture", "content": "boy_looking_through_window_friends_inside", "img": "img:boy_window_inside"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:He looked through the window and saw his friends playing outside."],
+      "skill_focus": "介词短语 look through + outside/inside对比，过去时saw",
+      "distractor_logic": "B=介词错(door)；C=朋友不在；D=inside/outside反转",
+      "irt": {"b": 1.6, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L19_VOC_P02",
+      "level": 19,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "phrasal_verb_picture",
+      "instruction_zh": "看图，选出描述这张图的词组",
+      "instruction_en": "Look at the picture. Choose the correct phrase.",
+      "picture_shown": "boy_turning_off_light_switch",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "turn off"},
+        {"id": "B", "type": "text_en", "content": "turn on"},
+        {"id": "C", "type": "text_en", "content": "put out"},
+        {"id": "D", "type": "text_en", "content": "switch up"}
+      ],
+      "correct": "A",
+      "media_required": ["img:boy_turning_off_light"],
+      "skill_focus": "短语动词 turn off/on — 方向对立的开关动作",
+      "distractor_logic": "B=方向相反(on)；C=put out有时指熄灭但不用于灯光开关；D=switch up不存在此用法",
+      "irt": {"b": 1.6, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L19_VOC_C01",
+      "level": 19,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "phrasal_verb_picture",
+      "instruction_zh": "看图，选出描述这张图的词组",
+      "picture_shown": "boy_giving_book_back_to_teacher",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "give back"},
+        {"id": "B", "type": "text_en", "content": "give up"},
+        {"id": "C", "type": "text_en", "content": "pick up"},
+        {"id": "D", "type": "text_en", "content": "turn off"}
+      ],
+      "correct": "A",
+      "media_required": ["img:boy_giving_book_back_teacher"],
+      "skill_focus": "确认题 — give back（回退L18难度）",
+      "distractor_logic": "与L18_VOC_P01相同图片，作为确认题",
+      "irt": {"b": 0.5, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L19_LIS_P01",
+      "level": 19,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "yes_no_question_response",
+      "instruction_zh": "听一个问题，选出最合适的回答",
+      "instruction_en": "Listen to the question. Choose the best answer.",
+      "audio_content": "Did you finish your homework last night?",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "Yes, I finished."},
+        {"id": "B", "type": "text_en", "content": "Yes, I did."},
+        {"id": "C", "type": "text_en", "content": "Yes, I do."},
+        {"id": "D", "type": "text_en", "content": "Yes, I was."}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:Did you finish your homework last night?"],
+      "skill_focus": "Did疑问句的简短回答 — Yes, I did（不重复主动词）",
+      "distractor_logic": "A=重复动词（不符合英语习惯）；C=do（现在时态错误）；D=was（be动词类型错误）",
+      "irt": {"b": 1.5, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L19_LIS_P02",
+      "level": 19,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "instruction_en": "Listen and answer the question.",
+      "audio_content": "Last week, our school had a science fair. Every class made a project. Our class made a model of the solar system. We worked on it for three days. On the day of the fair, lots of parents came to see it. Our teacher said it was the best project in the school.",
+      "question_zh": "老师对他们的项目有什么看法？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "项目做得不错但不是最好的"},
+        {"id": "B", "type": "text_zh", "content": "是全校最好的项目"},
+        {"id": "C", "type": "text_zh", "content": "项目花的时间太长了"},
+        {"id": "D", "type": "text_zh", "content": "项目的想法很有创意"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:Last week, our school had a science fair. Every class made a project. Our class made a model of the solar system. We worked on it for three days. On the day of the fair, lots of parents came to see it. Our teacher said it was the best project in the school."],
+      "skill_focus": "6句过去时叙事 — 定位老师评语，区分事实和评价",
+      "distractor_logic": "A/C/D均无原文依据；the best project in the school是明确表述",
+      "irt": {"b": 1.6, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L19_LIS_C01",
+      "level": 19,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "yes_no_question_response",
+      "instruction_zh": "听一个问题，选出最合适的回答",
+      "audio_content": "Can you swim?",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "Yes, I can."},
+        {"id": "B", "type": "text_en", "content": "Yes, I do."},
+        {"id": "C", "type": "text_en", "content": "Yes, I did."},
+        {"id": "D", "type": "text_en", "content": "Yes, I am."}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:Can you swim?"],
+      "skill_focus": "确认题 — Can疑问句简短回答 Yes, I can（回退L13难度）",
+      "distractor_logic": "do/did/am均与Can不配对，确认学生能区分不同助动词的回答",
+      "irt": {"b": 0.5, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L19_READ_P01",
+      "level": 19,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "title_choice",
+      "instruction_zh": "读一读，为这段话选一个最合适的标题",
+      "instruction_en": "Read the passage. Choose the best title.",
+      "stimulus_text": "Pandas are black and white animals that live in China. They eat bamboo for most of the day. A giant panda needs to eat about twelve kilograms of bamboo every day. Baby pandas are born very small — about the size of a butter stick. Mother pandas take very good care of their babies.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "How to Find Pandas in China"},
+        {"id": "B", "type": "text_en", "content": "Interesting Facts About Giant Pandas"},
+        {"id": "C", "type": "text_en", "content": "Why Pandas Only Eat Bamboo"},
+        {"id": "D", "type": "text_en", "content": "Baby Pandas and Their Mothers"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "title_choice题型首次出现 — 标题需覆盖整段内容，不能只针对某一部分",
+      "distractor_logic": "A无原文依据；C只涉及饮食一方面；D只涉及末两句；B概括最全面",
+      "irt": {"b": 1.5, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L19_READ_P02",
+      "level": 19,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read and answer the question.",
+      "stimulus_text": "Did you know that some birds can talk? Parrots are the most famous talking birds. They don't really understand what they say — they just copy sounds they hear. Some parrots can learn hundreds of words. The oldest talking parrot was reported to know over 1,700 words.",
+      "question_zh": "鹦鹉是怎么学说话的？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "它们理解人类语言然后学习"},
+        {"id": "B", "type": "text_zh", "content": "它们模仿听到的声音"},
+        {"id": "C", "type": "text_zh", "content": "它们天生就会说话"},
+        {"id": "D", "type": "text_zh", "content": "人类专门训练它们说话"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "科普语篇阅读 — they just copy sounds they hear，排除字面干扰",
+      "distractor_logic": "A与they don't really understand矛盾；C/D无原文依据；just copy是关键",
+      "irt": {"b": 1.6, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L19_READ_C01",
+      "level": 19,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "stimulus_text": "My dad works at a hospital. He usually starts work at seven in the morning and finishes at three in the afternoon. He often brings home stories about his patients. My mum says he is a great listener.",
+      "question_zh": "这段话主要说的是什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "爸爸的工作时间"},
+        {"id": "B", "type": "text_zh", "content": "爸爸是个好医生和好爸爸"},
+        {"id": "C", "type": "text_zh", "content": "医院的工作很辛苦"},
+        {"id": "D", "type": "text_zh", "content": "妈妈对爸爸的看法"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — main_idea（回退L18难度）",
+      "distractor_logic": "与L18_READ_P01相同语篇（略短版），作为确认题",
+      "irt": {"b": 0.5, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L19_GRAM_P01",
+      "level": 19,
+      "dimension": "grammar",
+      "role": "primary",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子语法正确",
+      "instruction_en": "Choose the correct word to complete the sentence.",
+      "stimulus_text": "_____ you visit the museum last weekend? — Yes, we did. It was great.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "Do"},
+        {"id": "B", "type": "text_en", "content": "Did"},
+        {"id": "C", "type": "text_en", "content": "Were"},
+        {"id": "D", "type": "text_en", "content": "Have"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "过去时疑问句 Did + 主语 + 动词原形，Yes, we did简短回答验证",
+      "distractor_logic": "A=Do（现在时）；C=Were（be动词疑问）；D=Have（现在完成时）。Yes, we did是提示",
+      "irt": {"b": 1.5, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L19_GRAM_C01",
+      "level": 19,
+      "dimension": "grammar",
+      "role": "confirm",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子语法正确",
+      "stimulus_text": "My sister play the piano every day and she also _____ in the school choir.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "sing"},
+        {"id": "B", "type": "text_en", "content": "sings"},
+        {"id": "C", "type": "text_en", "content": "sang"},
+        {"id": "D", "type": "text_en", "content": "singing"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — 第三人称单数 she → sings（回退L18难度）",
+      "distractor_logic": "every day暗示习惯性动作；she是第三人称；sing→sings",
+      "irt": {"b": 0.5, "a": 0.7, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L20_VOC_P01",
+      "level": 20,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，选出你听到的意思",
+      "instruction_en": "Listen and choose the correct picture.",
+      "audio_content": "The old library was knocked down last year. Now there is a modern shopping centre in its place.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "old_library_then_shopping_centre_now", "img": "img:library_to_mall"},
+        {"id": "B", "type": "picture", "content": "old_library_still_there", "img": "img:library_exists"},
+        {"id": "C", "type": "picture", "content": "new_library_built", "img": "img:new_library"},
+        {"id": "D", "type": "picture", "content": "shopping_centre_next_to_library", "img": "img:mall_next_library"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:The old library was knocked down last year. Now there is a modern shopping centre in its place."],
+      "skill_focus": "被动语态初步接触 was knocked down + in its place（代指前一地点）",
+      "distractor_logic": "B=图书馆还在；C=建了新图书馆；D=并排存在。需理解knocked down=拆掉+in its place=在原址",
+      "irt": {"b": 1.8, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L20_VOC_P02",
+      "level": 20,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "phrasal_verb_picture",
+      "instruction_zh": "看图，选出描述这张图的词组",
+      "instruction_en": "Look at the picture. Choose the correct phrase.",
+      "picture_shown": "girl_looking_up_word_in_dictionary",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "look up"},
+        {"id": "B", "type": "text_en", "content": "look after"},
+        {"id": "C", "type": "text_en", "content": "look for"},
+        {"id": "D", "type": "text_en", "content": "look out"}
+      ],
+      "correct": "A",
+      "media_required": ["img:girl_dictionary"],
+      "skill_focus": "短语动词 look up（查找），与look after/for/out语义完全不同",
+      "distractor_logic": "四个look+particle组合：up(查找)/after(照顾)/for(寻找)/out(小心)，均为高频但语义迥异",
+      "irt": {"b": 1.9, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L20_VOC_C01",
+      "level": 20,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "phrasal_verb_picture",
+      "instruction_zh": "看图，选出描述这张图的词组",
+      "picture_shown": "boy_turning_off_light_switch",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "turn off"},
+        {"id": "B", "type": "text_en", "content": "turn on"},
+        {"id": "C", "type": "text_en", "content": "look up"},
+        {"id": "D", "type": "text_en", "content": "give back"}
+      ],
+      "correct": "A",
+      "media_required": ["img:boy_turning_off_light"],
+      "skill_focus": "确认题 — turn off（回退L19难度）",
+      "distractor_logic": "与L19_VOC_P02相同图片",
+      "irt": {"b": 0.7, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L20_LIS_P01",
+      "level": 20,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "instruction_en": "Listen and answer the question.",
+      "audio_content": "When my grandparents were young, there was no internet. If they wanted to find information, they had to go to a library and look it up in books. Today, my little brother can find anything he wants in seconds on his phone. Sometimes I think things were simpler back then.",
+      "question_zh": "叙述者为什么觉得以前的日子有时候更简单？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "因为以前的书更多"},
+        {"id": "B", "type": "text_zh", "content": "以前没有手机，生活节奏更慢"},
+        {"id": "C", "type": "text_zh", "content": "因为图书馆里的书比手机更准确"},
+        {"id": "D", "type": "text_zh", "content": "文中没有给出原因"}
+      ],
+      "correct": "D",
+      "media_required": ["audio_tts:When my grandparents were young, there was no internet. If they wanted to find information, they had to go to a library and look it up in books. Today, my little brother can find anything he wants in seconds on his phone. Sometimes I think things were simpler back then."],
+      "skill_focus": "推断与原文依据辨别 — I think是主观感受，原文未给出原因，正确答案是D",
+      "distractor_logic": "A/C无依据；B是合理推断但超出原文；最难的是接受D=文中没有说，而不是过度推断",
+      "irt": {"b": 1.8, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L20_LIS_P02",
+      "level": 20,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "inference_listening",
+      "instruction_zh": "听一段话，然后推断",
+      "instruction_en": "Listen and make an inference.",
+      "audio_content": "A: I've been waiting here for twenty minutes. B: I'm so sorry, the bus broke down and I had to walk. A: It's fine. Shall we go in? The film starts in five minutes. B: Oh good — I was worried we'd miss it.",
+      "question_zh": "他们在哪里？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "公共汽车站"},
+        {"id": "B", "type": "text_zh", "content": "电影院外面"},
+        {"id": "C", "type": "text_zh", "content": "餐厅外面"},
+        {"id": "D", "type": "text_zh", "content": "火车站"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts_dialogue:I've been waiting here for twenty minutes. I'm so sorry, the bus broke down and I had to walk. It's fine. Shall we go in? The film starts in five minutes. Oh good — I was worried we'd miss it."],
+      "skill_focus": "场景推断 — Shall we go in + The film starts + miss it → 电影院外",
+      "distractor_logic": "A是陷阱（提到bus但他们不在车站）；C/D无依据；the film+go in+miss it三个线索指向电影院",
+      "irt": {"b": 1.9, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L20_LIS_C01",
+      "level": 20,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "yes_no_question_response",
+      "instruction_zh": "听一个问题，选出最合适的回答",
+      "audio_content": "Did you visit the museum last weekend?",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "Yes, I did."},
+        {"id": "B", "type": "text_en", "content": "Yes, I do."},
+        {"id": "C", "type": "text_en", "content": "Yes, I visited."},
+        {"id": "D", "type": "text_en", "content": "Yes, I was."}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:Did you visit the museum last weekend?"],
+      "skill_focus": "确认题 — Did疑问句简答 Yes, I did（回退L19难度）",
+      "distractor_logic": "与L19_LIS_P01同类型，换了内容",
+      "irt": {"b": 0.6, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L20_READ_P01",
+      "level": 20,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "title_choice",
+      "instruction_zh": "读一读，为这段话选一个最合适的标题",
+      "instruction_en": "Read the passage. Choose the best title.",
+      "stimulus_text": "Twenty years ago, this neighbourhood was very different. There was a small park where children played after school. There were three little shops on the main road. Most families knew each other. Now the park is gone. There are tall apartment buildings where the shops used to be. People come and go, and most neighbours don't know each other's names.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "Why People Move to New Neighbourhoods"},
+        {"id": "B", "type": "text_en", "content": "How a Neighbourhood Changed Over Twenty Years"},
+        {"id": "C", "type": "text_en", "content": "The Importance of Having a Park"},
+        {"id": "D", "type": "text_en", "content": "Building New Homes in the City"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "there was/were过去时对比阅读 + title_choice综合理解",
+      "distractor_logic": "A/D只涉及部分内容；C只涉及公园一个细节；B覆盖时间跨度和整体变化主题",
+      "irt": {"b": 1.8, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L20_READ_P02",
+      "level": 20,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，然后推断",
+      "instruction_en": "Read and make an inference.",
+      "stimulus_text": "Every time Nina visits her grandmother, she finds a new plant on the windowsill. Her grandmother talks to the plants as if they are people. When Nina asked why, her grandmother said, 'They grow better when they're not lonely.' Nina doesn't know if that's really true, but she never argues.",
+      "question_zh": "关于Nina和她的外婆，可以推断出什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "Nina不喜欢植物"},
+        {"id": "B", "type": "text_zh", "content": "Nina尊重外婆的习惯，即使她不确定是否有道理"},
+        {"id": "C", "type": "text_zh", "content": "外婆认为植物有感情，而且科学上已经证明了"},
+        {"id": "D", "type": "text_zh", "content": "Nina每次都会带一棵新植物给外婆"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "人物关系推断 — doesn't know if it's true + never argues → 尊重但存疑",
+      "distractor_logic": "A与原文矛盾（无证据）；C过度推断（原文只说外婆这样认为，非科学证明）；D无依据",
+      "irt": {"b": 1.9, "a": 1.4, "c": 0.25}
+    },
+    {
+      "item_id": "L20_READ_C01",
+      "level": 20,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "title_choice",
+      "instruction_zh": "读一读，为这段话选一个最合适的标题",
+      "stimulus_text": "Pandas are black and white animals that live in China. They eat bamboo for most of the day. Baby pandas are born very small. Mother pandas take very good care of their babies.",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "如何在中国找到熊猫"},
+        {"id": "B", "type": "text_zh", "content": "关于大熊猫的有趣知识"},
+        {"id": "C", "type": "text_zh", "content": "为什么熊猫只吃竹子"},
+        {"id": "D", "type": "text_zh", "content": "熊猫宝宝的生活"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — title_choice（回退L19难度，语篇缩短）",
+      "distractor_logic": "与L19_READ_P01同语篇缩短版，B仍然是覆盖最全面的标题",
+      "irt": {"b": 0.6, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L20_GRAM_P01",
+      "level": 20,
+      "dimension": "grammar",
+      "role": "primary",
+      "item_type": "grammar_error_spot",
+      "instruction_zh": "找出句子中的语法错误，选出正确的版本",
+      "instruction_en": "Find the grammar mistake. Choose the correct version.",
+      "stimulus_text": "There was a lot of people at the concert last night.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "There were a lot of people at the concert last night."},
+        {"id": "B", "type": "text_en", "content": "There was a lot of person at the concert last night."},
+        {"id": "C", "type": "text_en", "content": "There is a lot of people at the concert last night."},
+        {"id": "D", "type": "text_en", "content": "There are a lot of people at the concert last night."}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "there was/were人称数一致 — a lot of people是复数 → were",
+      "distractor_logic": "B=people→person（复数改成单数但还有其他错）；C=换成现在时is；D=换成现在时are（时态错）",
+      "irt": {"b": 1.8, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L20_GRAM_C01",
+      "level": 20,
+      "dimension": "grammar",
+      "role": "confirm",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子语法正确",
+      "stimulus_text": "_____ you finish your homework last night? — Yes, I did.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "Do"},
+        {"id": "B", "type": "text_en", "content": "Did"},
+        {"id": "C", "type": "text_en", "content": "Were"},
+        {"id": "D", "type": "text_en", "content": "Have"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — Did疑问句（回退L19难度，与L19_GRAM_P01相同刺激）",
+      "distractor_logic": "Yes, I did是明确提示",
+      "irt": {"b": 0.6, "a": 0.7, "c": 0.25}
+    }
+
+  ]
+}

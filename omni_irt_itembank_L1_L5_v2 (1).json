@@ -1,0 +1,909 @@
+{
+  "_meta": {
+    "version": "2.0",
+    "created": "2026-04-05",
+    "description": "OMNI-LEARN OS IRT自适应入学测试题库 · L1-L5 (Pre-A1a) · 连错2+确认1策略",
+    "level_range": "L1-L5",
+    "cefr": "Pre-A1",
+    "total_items": 45,
+    "instruction_language": "zh",
+
+    "adaptive_strategy": {
+      "name": "2-wrong-1-confirm",
+      "description": "同一维度内连错2题后，不立即终止，而是下发1道比当前级别低1-2级的确认题。确认题答对→能力定为确认题级别；确认题也答错→能力定为确认题级别-1（或L1下限）。",
+      "typical_items_per_dimension": "3-5题",
+      "typical_total_items": "10-15题（3个维度）",
+      "flow": [
+        "1. 从该维度的中间难度开始（L3）",
+        "2. 答对→升2级，答错→降1级",
+        "3. 连续答对2题同级别→该维度能力 = 当前级别，转入下一维度",
+        "4. 连续答错2题→触发确认题（难度 = 当前级别 - 2，最低L1）",
+        "5. 确认题答对→能力 = 确认题级别，终止该维度",
+        "6. 确认题答错→能力 = 确认题级别 - 1（下限L1），终止该维度",
+        "7. 所有维度终止后，计算加权综合等级"
+      ],
+      "confidence_note": "此策略下误判率约5%，远低于直接连错2题终止的15-20%"
+    },
+
+    "dimension_weights": {
+      "vocabulary": 0.45,
+      "listening": 0.40,
+      "reading": 0.15,
+      "grammar": 0.00
+    },
+
+    "item_roles": {
+      "primary": "主测题 — 用于正常测试流程中的能力探测",
+      "confirm": "确认题 — 仅在连错2题后触发，用于确认能力下界"
+    }
+  },
+
+  "items": [
+
+    {
+      "item_id": "L1_VOC_P01",
+      "level": 1,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "apple",
+      "options": [
+        {"id": "A", "type": "picture", "content": "apple", "img": "img:apple"},
+        {"id": "B", "type": "picture", "content": "banana", "img": "img:banana"},
+        {"id": "C", "type": "picture", "content": "ball", "img": "img:ball"},
+        {"id": "D", "type": "picture", "content": "book", "img": "img:book"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:apple"],
+      "skill_focus": "基础名词 — 水果（高频、高具象）",
+      "distractor_logic": "干扰项均为L1高频词，但语义类别不同（水果/玩具/物品），仅测词义不测分类",
+      "irt": {"b": -2.8, "a": 0.8, "c": 0.25}
+    },
+    {
+      "item_id": "L1_VOC_P02",
+      "level": 1,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "dog",
+      "options": [
+        {"id": "A", "type": "picture", "content": "cat", "img": "img:cat"},
+        {"id": "B", "type": "picture", "content": "dog", "img": "img:dog"},
+        {"id": "C", "type": "picture", "content": "fish", "img": "img:fish"},
+        {"id": "D", "type": "picture", "content": "bird", "img": "img:bird"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:dog"],
+      "skill_focus": "基础名词 — 动物",
+      "distractor_logic": "全部为动物类，测词义精确性而非类别区分",
+      "irt": {"b": -2.9, "a": 0.7, "c": 0.25}
+    },
+    {
+      "item_id": "L1_VOC_C01",
+      "level": 1,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "ball",
+      "options": [
+        {"id": "A", "type": "picture", "content": "car", "img": "img:car"},
+        {"id": "B", "type": "picture", "content": "tree", "img": "img:tree"},
+        {"id": "C", "type": "picture", "content": "ball", "img": "img:ball"},
+        {"id": "D", "type": "picture", "content": "milk", "img": "img:milk"}
+      ],
+      "correct": "C",
+      "media_required": ["audio_tts:ball"],
+      "skill_focus": "确认题 — 极高频词，干扰项语义距离远",
+      "distractor_logic": "干扰项与目标词在视觉和语音上差异极大，确保只有真正零基础才会答错",
+      "irt": {"b": -3.0, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L1_LIS_P01",
+      "level": 1,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "language_identification",
+      "instruction_zh": "听两段话，哪个是英语？",
+      "audio_clips": ["Hello, how are you?", "你好，你怎么样？"],
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "第一段"},
+        {"id": "B", "type": "text_zh", "content": "第二段"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts_en:Hello, how are you?", "audio_tts_zh:你好，你怎么样？"],
+      "skill_focus": "英语语音识别 — 能辨认英语和母语的区别",
+      "distractor_logic": "二选一，测最基础的语言辨识",
+      "irt": {"b": -3.0, "a": 0.6, "c": 0.5}
+    },
+    {
+      "item_id": "L1_LIS_P02",
+      "level": 1,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "sound_discrimination",
+      "instruction_zh": "听三个声音，哪个和其他两个不一样？",
+      "audio_clips": ["cat", "cat", "cup"],
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "第一个"},
+        {"id": "B", "type": "text_zh", "content": "第二个"},
+        {"id": "C", "type": "text_zh", "content": "第三个"}
+      ],
+      "correct": "C",
+      "media_required": ["audio_tts:cat", "audio_tts:cat", "audio_tts:cup"],
+      "skill_focus": "听音辨异 — 最小对比",
+      "distractor_logic": "前两个相同，第三个不同；首音相同但元音不同",
+      "irt": {"b": -2.8, "a": 0.7, "c": 0.33}
+    },
+    {
+      "item_id": "L1_LIS_C01",
+      "level": 1,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "language_identification",
+      "instruction_zh": "听两段话，哪个是英语？",
+      "audio_clips": ["Good morning!", "早上好！"],
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "第一段"},
+        {"id": "B", "type": "text_zh", "content": "第二段"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts_en:Good morning!", "audio_tts_zh:早上好！"],
+      "skill_focus": "确认题 — 语言辨识（最简单形式）",
+      "distractor_logic": "短句对比，语音差异极大",
+      "irt": {"b": -3.2, "a": 0.5, "c": 0.5}
+    },
+
+    {
+      "item_id": "L1_READ_P01",
+      "level": 1,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "letter_visual_match",
+      "instruction_zh": "请找到和上面一样的字母",
+      "stimulus": "A",
+      "options": [
+        {"id": "A", "type": "letter", "content": "A"},
+        {"id": "B", "type": "letter", "content": "H"},
+        {"id": "C", "type": "letter", "content": "V"},
+        {"id": "D", "type": "letter", "content": "N"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "大写字母视觉辨识 — 直线型字母组",
+      "distractor_logic": "H/V/N均有直线交叉，和A形状部分相似",
+      "irt": {"b": -2.9, "a": 0.7, "c": 0.25}
+    },
+    {
+      "item_id": "L1_READ_P02",
+      "level": 1,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "letter_visual_match",
+      "instruction_zh": "请找到和上面一样的字母",
+      "stimulus": "O",
+      "options": [
+        {"id": "A", "type": "letter", "content": "Q"},
+        {"id": "B", "type": "letter", "content": "O"},
+        {"id": "C", "type": "letter", "content": "C"},
+        {"id": "D", "type": "letter", "content": "D"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "大写字母视觉辨识 — 圆形字母组",
+      "distractor_logic": "Q/C/D均包含圆弧，与O高度相似",
+      "irt": {"b": -2.8, "a": 0.7, "c": 0.25}
+    },
+    {
+      "item_id": "L1_READ_C01",
+      "level": 1,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "letter_visual_match",
+      "instruction_zh": "请找到和上面一样的字母",
+      "stimulus": "X",
+      "options": [
+        {"id": "A", "type": "letter", "content": "S"},
+        {"id": "B", "type": "letter", "content": "M"},
+        {"id": "C", "type": "letter", "content": "X"},
+        {"id": "D", "type": "letter", "content": "W"}
+      ],
+      "correct": "C",
+      "media_required": [],
+      "skill_focus": "确认题 — X形状独特，视觉干扰低",
+      "distractor_logic": "S/M/W与X形状差异大，只有完全不识字母才会错",
+      "irt": {"b": -3.2, "a": 0.5, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L2_VOC_P01",
+      "level": 2,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的颜色",
+      "audio_content": "red",
+      "options": [
+        {"id": "A", "type": "picture", "content": "red_block", "img": "img:red_block"},
+        {"id": "B", "type": "picture", "content": "blue_block", "img": "img:blue_block"},
+        {"id": "C", "type": "picture", "content": "green_block", "img": "img:green_block"},
+        {"id": "D", "type": "picture", "content": "yellow_block", "img": "img:yellow_block"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:red"],
+      "skill_focus": "颜色词汇",
+      "distractor_logic": "四种基础颜色，测颜色英文对应",
+      "irt": {"b": -2.5, "a": 0.8, "c": 0.25}
+    },
+    {
+      "item_id": "L2_VOC_P02",
+      "level": 2,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "picture_to_audio",
+      "instruction_zh": "看图片，哪个声音说的是这个？",
+      "picture_shown": "cat",
+      "options": [
+        {"id": "A", "type": "audio", "content": "cat"},
+        {"id": "B", "type": "audio", "content": "car"},
+        {"id": "C", "type": "audio", "content": "cup"},
+        {"id": "D", "type": "audio", "content": "cow"}
+      ],
+      "correct": "A",
+      "media_required": ["img:cat", "audio_tts:cat", "audio_tts:car", "audio_tts:cup", "audio_tts:cow"],
+      "skill_focus": "图片→音频反向匹配 — 首音相同干扰",
+      "distractor_logic": "所有选项以/k/开头，测元音和尾音辨识",
+      "irt": {"b": -2.3, "a": 0.9, "c": 0.25}
+    },
+    {
+      "item_id": "L2_VOC_C01",
+      "level": 2,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "fish",
+      "options": [
+        {"id": "A", "type": "picture", "content": "sun", "img": "img:sun"},
+        {"id": "B", "type": "picture", "content": "fish", "img": "img:fish"},
+        {"id": "C", "type": "picture", "content": "bed", "img": "img:bed"},
+        {"id": "D", "type": "picture", "content": "hat", "img": "img:hat"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:fish"],
+      "skill_focus": "确认题 — 干扰项与目标差异大",
+      "distractor_logic": "视觉和语义距离远，降低确认题难度",
+      "irt": {"b": -2.8, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L2_LIS_P01",
+      "level": 2,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "phoneme_discrimination",
+      "instruction_zh": "听两个声音，它们一样吗？",
+      "audio_clips": ["/b/", "/d/"],
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "一样"},
+        {"id": "B", "type": "text_zh", "content": "不一样"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_phoneme:b", "audio_phoneme:d"],
+      "skill_focus": "辅音最小对立对 b/d",
+      "distractor_logic": "二选一，b和d是中国学生最常混淆的辅音对",
+      "irt": {"b": -2.3, "a": 0.9, "c": 0.5}
+    },
+    {
+      "item_id": "L2_LIS_P02",
+      "level": 2,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "word_to_picture",
+      "instruction_zh": "听一听，这个人说的是哪个？",
+      "audio_content": "Hello!",
+      "options": [
+        {"id": "A", "type": "picture", "content": "person_waving", "img": "img:waving"},
+        {"id": "B", "type": "picture", "content": "person_sleeping", "img": "img:sleeping"},
+        {"id": "C", "type": "picture", "content": "person_eating", "img": "img:eating"},
+        {"id": "D", "type": "picture", "content": "person_crying", "img": "img:crying"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:Hello!"],
+      "skill_focus": "基础问候语听力理解",
+      "distractor_logic": "Hello=打招呼=挥手，测最基本的社交用语理解",
+      "irt": {"b": -2.4, "a": 0.8, "c": 0.25}
+    },
+    {
+      "item_id": "L2_LIS_C01",
+      "level": 2,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "phoneme_discrimination",
+      "instruction_zh": "听两个声音，它们一样吗？",
+      "audio_clips": ["/s/", "/m/"],
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "一样"},
+        {"id": "B", "type": "text_zh", "content": "不一样"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_phoneme:s", "audio_phoneme:m"],
+      "skill_focus": "确认题 — 发音差异极大的辅音对",
+      "distractor_logic": "/s/和/m/发音方式完全不同（摩擦音vs鼻音），只有完全无英语语音感知才会分不清",
+      "irt": {"b": -3.0, "a": 0.5, "c": 0.5}
+    },
+
+    {
+      "item_id": "L2_READ_P01",
+      "level": 2,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "letter_audio_match",
+      "instruction_zh": "听一听，点一下你听到的字母",
+      "audio_content": "letter_name:M",
+      "options": [
+        {"id": "A", "type": "letter", "content": "M"},
+        {"id": "B", "type": "letter", "content": "N"},
+        {"id": "C", "type": "letter", "content": "W"},
+        {"id": "D", "type": "letter", "content": "V"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_letter:M"],
+      "skill_focus": "听音识字母 — 相似形状辨别",
+      "distractor_logic": "M/N/W/V均有对称尖角结构",
+      "irt": {"b": -2.4, "a": 0.8, "c": 0.25}
+    },
+    {
+      "item_id": "L2_READ_P02",
+      "level": 2,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "upper_lower_match",
+      "instruction_zh": "上面是大写字母，请找到它的小写",
+      "stimulus": "B",
+      "options": [
+        {"id": "A", "type": "letter", "content": "b"},
+        {"id": "B", "type": "letter", "content": "d"},
+        {"id": "C", "type": "letter", "content": "p"},
+        {"id": "D", "type": "letter", "content": "q"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "大小写配对 — 最高混淆组 b/d/p/q",
+      "distractor_logic": "b/d水平镜像，p/q上下翻转，是字母学习的核心难点",
+      "irt": {"b": -2.0, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L2_READ_C01",
+      "level": 2,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "letter_audio_match",
+      "instruction_zh": "听一听，点一下你听到的字母",
+      "audio_content": "letter_name:S",
+      "options": [
+        {"id": "A", "type": "letter", "content": "B"},
+        {"id": "B", "type": "letter", "content": "S"},
+        {"id": "C", "type": "letter", "content": "K"},
+        {"id": "D", "type": "letter", "content": "T"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_letter:S"],
+      "skill_focus": "确认题 — S形状独特（曲线型），干扰项均为直线型",
+      "distractor_logic": "S与B/K/T视觉差异大",
+      "irt": {"b": -2.8, "a": 0.5, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L3_VOC_P01",
+      "level": 3,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "hand",
+      "options": [
+        {"id": "A", "type": "picture", "content": "hand", "img": "img:hand"},
+        {"id": "B", "type": "picture", "content": "head", "img": "img:head"},
+        {"id": "C", "type": "picture", "content": "foot", "img": "img:foot"},
+        {"id": "D", "type": "picture", "content": "arm", "img": "img:arm"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:hand"],
+      "skill_focus": "身体部位词汇 — 同类别内辨识",
+      "distractor_logic": "全部为身体部位，hand/head首音相同增加难度",
+      "irt": {"b": -2.2, "a": 0.9, "c": 0.25}
+    },
+    {
+      "item_id": "L3_VOC_P02",
+      "level": 3,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "category_oddone",
+      "instruction_zh": "听四个词，哪个和其他三个不是一类？",
+      "audio_clips": ["cat", "dog", "fish", "car"],
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "第一个 cat"},
+        {"id": "B", "type": "text_zh", "content": "第二个 dog"},
+        {"id": "C", "type": "text_zh", "content": "第三个 fish"},
+        {"id": "D", "type": "text_zh", "content": "第四个 car"}
+      ],
+      "correct": "D",
+      "media_required": ["audio_tts:cat", "audio_tts:dog", "audio_tts:fish", "audio_tts:car"],
+      "skill_focus": "词汇分类 — 动物 vs 交通工具",
+      "distractor_logic": "需要同时识别4个词的含义并归类，难度高于单词匹配",
+      "irt": {"b": -1.8, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L3_VOC_C01",
+      "level": 3,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "sun",
+      "options": [
+        {"id": "A", "type": "picture", "content": "sun", "img": "img:sun"},
+        {"id": "B", "type": "picture", "content": "car", "img": "img:car"},
+        {"id": "C", "type": "picture", "content": "egg", "img": "img:egg"},
+        {"id": "D", "type": "picture", "content": "pen", "img": "img:pen"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:sun"],
+      "skill_focus": "确认题 — 视觉差异极大的干扰项",
+      "distractor_logic": "太阳图片辨识度极高，排除视觉干扰",
+      "irt": {"b": -2.6, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L3_LIS_P01",
+      "level": 3,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "command_to_picture",
+      "instruction_zh": "听一听，这个人让你做什么？",
+      "audio_content": "Stand up, please.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "person_standing_up", "img": "img:standing"},
+        {"id": "B", "type": "picture", "content": "person_sitting_down", "img": "img:sitting"},
+        {"id": "C", "type": "picture", "content": "person_jumping", "img": "img:jumping"},
+        {"id": "D", "type": "picture", "content": "person_running", "img": "img:running"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:Stand up, please."],
+      "skill_focus": "课堂指令听力理解",
+      "distractor_logic": "全部为动作，stand up vs sit down是最常见对比对",
+      "irt": {"b": -2.0, "a": 0.9, "c": 0.25}
+    },
+    {
+      "item_id": "L3_LIS_P02",
+      "level": 3,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "phoneme_onset",
+      "instruction_zh": "听两个词，开头的声音一样吗？",
+      "audio_clips": ["sun", "sit"],
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "一样"},
+        {"id": "B", "type": "text_zh", "content": "不一样"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:sun", "audio_tts:sit"],
+      "skill_focus": "首音素辨识 — onset awareness",
+      "distractor_logic": "sun和sit首音均为/s/，测能否提取首音素",
+      "irt": {"b": -2.0, "a": 1.0, "c": 0.5}
+    },
+    {
+      "item_id": "L3_LIS_C01",
+      "level": 3,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "command_to_picture",
+      "instruction_zh": "听一听，这个人让你做什么？",
+      "audio_content": "Clap your hands.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "child_clapping", "img": "img:clapping"},
+        {"id": "B", "type": "picture", "content": "child_sleeping", "img": "img:sleeping"},
+        {"id": "C", "type": "picture", "content": "child_eating", "img": "img:eating"},
+        {"id": "D", "type": "picture", "content": "child_reading", "img": "img:reading"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:Clap your hands."],
+      "skill_focus": "确认题 — clap hands动作直观，干扰项动作差异大",
+      "distractor_logic": "拍手动作与睡觉/吃饭/读书视觉差异极大",
+      "irt": {"b": -2.5, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L3_READ_P01",
+      "level": 3,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "word_picture_match",
+      "instruction_zh": "看这个词，它说的是哪个？",
+      "stimulus_word": "cat",
+      "options": [
+        {"id": "A", "type": "picture", "content": "cat", "img": "img:cat"},
+        {"id": "B", "type": "picture", "content": "car", "img": "img:car"},
+        {"id": "C", "type": "picture", "content": "cup", "img": "img:cup"},
+        {"id": "D", "type": "picture", "content": "cap", "img": "img:cap"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "CVC词整词识别 — 首字母相同干扰",
+      "distractor_logic": "cat/car/cup/cap均以c开头，需要完整解码才能区分",
+      "irt": {"b": -2.0, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L3_READ_C01",
+      "level": 3,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "letter_audio_match",
+      "instruction_zh": "听一听，点一下你听到的字母",
+      "audio_content": "letter_name:G",
+      "options": [
+        {"id": "A", "type": "letter", "content": "G"},
+        {"id": "B", "type": "letter", "content": "C"},
+        {"id": "C", "type": "letter", "content": "O"},
+        {"id": "D", "type": "letter", "content": "Q"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_letter:G"],
+      "skill_focus": "确认题 — 听音识字母",
+      "distractor_logic": "回退到字母识别（L1-2级别能力）确认下界",
+      "irt": {"b": -2.5, "a": 0.6, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L4_VOC_P01",
+      "level": 4,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，这个人在做什么？",
+      "audio_content": "running",
+      "options": [
+        {"id": "A", "type": "picture", "content": "person_running", "img": "img:running"},
+        {"id": "B", "type": "picture", "content": "person_swimming", "img": "img:swimming"},
+        {"id": "C", "type": "picture", "content": "person_reading", "img": "img:reading"},
+        {"id": "D", "type": "picture", "content": "person_sleeping", "img": "img:sleeping"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:running"],
+      "skill_focus": "动作动词 — 动词ing形式",
+      "distractor_logic": "全部为日常动作，需要准确理解动词含义",
+      "irt": {"b": -1.7, "a": 0.9, "c": 0.25}
+    },
+    {
+      "item_id": "L4_VOC_P02",
+      "level": 4,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "category_oddone",
+      "instruction_zh": "听四个词，哪个和其他三个不是一类？",
+      "audio_clips": ["red", "blue", "green", "big"],
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "第一个 red"},
+        {"id": "B", "type": "text_zh", "content": "第二个 blue"},
+        {"id": "C", "type": "text_zh", "content": "第三个 green"},
+        {"id": "D", "type": "text_zh", "content": "第四个 big"}
+      ],
+      "correct": "D",
+      "media_required": ["audio_tts:red", "audio_tts:blue", "audio_tts:green", "audio_tts:big"],
+      "skill_focus": "词汇分类 — 颜色 vs 其他形容词",
+      "distractor_logic": "需要知道big不是颜色词，测分类能力",
+      "irt": {"b": -1.5, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L4_VOC_C01",
+      "level": 4,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "table",
+      "options": [
+        {"id": "A", "type": "picture", "content": "table", "img": "img:table"},
+        {"id": "B", "type": "picture", "content": "tree", "img": "img:tree"},
+        {"id": "C", "type": "picture", "content": "ball", "img": "img:ball"},
+        {"id": "D", "type": "picture", "content": "moon", "img": "img:moon"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:table"],
+      "skill_focus": "确认题 — 家居词汇，干扰项差异大",
+      "distractor_logic": "桌子与树/球/月亮视觉完全不同",
+      "irt": {"b": -2.2, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L4_LIS_P01",
+      "level": 4,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "command_to_picture",
+      "instruction_zh": "听一听，这个人让你做什么？",
+      "audio_content": "Close the door, please.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "person_closing_door", "img": "img:close_door"},
+        {"id": "B", "type": "picture", "content": "person_opening_door", "img": "img:open_door"},
+        {"id": "C", "type": "picture", "content": "person_closing_window", "img": "img:close_window"},
+        {"id": "D", "type": "picture", "content": "person_opening_book", "img": "img:open_book"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:Close the door, please."],
+      "skill_focus": "多词指令 — close/open + door/window交叉干扰",
+      "distractor_logic": "需要同时听准动词(close≠open)和名词(door≠window)",
+      "irt": {"b": -1.6, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L4_LIS_P02",
+      "level": 4,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "sentence_to_picture",
+      "instruction_zh": "听一听，哪张图和你听到的一样？",
+      "audio_content": "I like blue.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "blue_block", "img": "img:blue"},
+        {"id": "B", "type": "picture", "content": "red_block", "img": "img:red"},
+        {"id": "C", "type": "picture", "content": "green_block", "img": "img:green"},
+        {"id": "D", "type": "picture", "content": "yellow_block", "img": "img:yellow"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:I like blue."],
+      "skill_focus": "句中关键词提取 — 从句子中听出颜色词",
+      "distractor_logic": "需要忽略I like，聚焦关键信息词blue",
+      "irt": {"b": -1.7, "a": 0.9, "c": 0.25}
+    },
+    {
+      "item_id": "L4_LIS_C01",
+      "level": 4,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "word_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "book",
+      "options": [
+        {"id": "A", "type": "picture", "content": "book", "img": "img:book"},
+        {"id": "B", "type": "picture", "content": "door", "img": "img:door"},
+        {"id": "C", "type": "picture", "content": "star", "img": "img:star"},
+        {"id": "D", "type": "picture", "content": "milk", "img": "img:milk"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:book"],
+      "skill_focus": "确认题 — 单词级听力（回退到L2难度）",
+      "distractor_logic": "单词而非句子，降低处理负担",
+      "irt": {"b": -2.5, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L4_READ_P01",
+      "level": 4,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "word_picture_match",
+      "instruction_zh": "看这个词，它说的是哪个？",
+      "stimulus_word": "dog",
+      "options": [
+        {"id": "A", "type": "picture", "content": "dog", "img": "img:dog"},
+        {"id": "B", "type": "picture", "content": "dig", "img": "img:dig_action"},
+        {"id": "C", "type": "picture", "content": "dot", "img": "img:dot"},
+        {"id": "D", "type": "picture", "content": "dug", "img": "img:dug_hole"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "CVC词辨识 — 中间元音最小对比 (dog/dig/dot/dug)",
+      "distractor_logic": "首尾辅音相同(d_g/d_t)，只有元音不同，测精确解码",
+      "irt": {"b": -1.6, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L4_READ_C01",
+      "level": 4,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "upper_lower_match",
+      "instruction_zh": "上面是大写字母，请找到它的小写",
+      "stimulus": "G",
+      "options": [
+        {"id": "A", "type": "letter", "content": "g"},
+        {"id": "B", "type": "letter", "content": "q"},
+        {"id": "C", "type": "letter", "content": "p"},
+        {"id": "D", "type": "letter", "content": "j"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "确认题 — 大小写配对（回退到L2难度）",
+      "distractor_logic": "g/q/p/j尾部均有下延，但整体形状不同",
+      "irt": {"b": -2.2, "a": 0.7, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L5_VOC_P01",
+      "level": 5,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "umbrella",
+      "options": [
+        {"id": "A", "type": "picture", "content": "umbrella", "img": "img:umbrella"},
+        {"id": "B", "type": "picture", "content": "hat", "img": "img:hat"},
+        {"id": "C", "type": "picture", "content": "bag", "img": "img:bag"},
+        {"id": "D", "type": "picture", "content": "shoe", "img": "img:shoe"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:umbrella"],
+      "skill_focus": "日常物品 — 双音节词",
+      "distractor_logic": "全部为穿戴/携带类物品，同一语义场",
+      "irt": {"b": -1.3, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L5_VOC_P02",
+      "level": 5,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "picture_to_audio",
+      "instruction_zh": "看图片，哪个声音说的是这个？",
+      "picture_shown": "elephant",
+      "options": [
+        {"id": "A", "type": "audio", "content": "elephant"},
+        {"id": "B", "type": "audio", "content": "eleven"},
+        {"id": "C", "type": "audio", "content": "envelope"},
+        {"id": "D", "type": "audio", "content": "elbow"}
+      ],
+      "correct": "A",
+      "media_required": ["img:elephant", "audio_tts:elephant", "audio_tts:eleven", "audio_tts:envelope", "audio_tts:elbow"],
+      "skill_focus": "多音节词 — 首音相同干扰（el-开头）",
+      "distractor_logic": "四个词均以/el/开头，需听完整词才能判断",
+      "irt": {"b": -1.2, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L5_VOC_C01",
+      "level": 5,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "milk",
+      "options": [
+        {"id": "A", "type": "picture", "content": "milk", "img": "img:milk"},
+        {"id": "B", "type": "picture", "content": "fish", "img": "img:fish"},
+        {"id": "C", "type": "picture", "content": "tree", "img": "img:tree"},
+        {"id": "D", "type": "picture", "content": "shoe", "img": "img:shoe"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:milk"],
+      "skill_focus": "确认题 — 回退到L2-3难度的单词",
+      "distractor_logic": "跨类别干扰，视觉差异大",
+      "irt": {"b": -2.4, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L5_LIS_P01",
+      "level": 5,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "sentence_to_picture",
+      "instruction_zh": "听一听，哪张图和你听到的一样？",
+      "audio_content": "The cat is sleeping.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "cat_sleeping", "img": "img:cat_sleep"},
+        {"id": "B", "type": "picture", "content": "cat_eating", "img": "img:cat_eat"},
+        {"id": "C", "type": "picture", "content": "dog_sleeping", "img": "img:dog_sleep"},
+        {"id": "D", "type": "picture", "content": "cat_running", "img": "img:cat_run"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:The cat is sleeping."],
+      "skill_focus": "整句听力理解 — 主语+谓语双重辨识",
+      "distractor_logic": "cat_eating=动词错；dog_sleeping=主语错；cat_running=两者都错。需要同时听准主语和动作",
+      "irt": {"b": -1.2, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L5_LIS_P02",
+      "level": 5,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "rhyme_awareness",
+      "instruction_zh": "听两个词，结尾的声音一样吗？",
+      "audio_clips": ["cat", "hat"],
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "一样"},
+        {"id": "B", "type": "text_zh", "content": "不一样"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:cat", "audio_tts:hat"],
+      "skill_focus": "尾韵辨识 — rhyme awareness",
+      "distractor_logic": "cat/hat押韵（-at），测音素分析能力",
+      "irt": {"b": -1.4, "a": 1.0, "c": 0.5}
+    },
+    {
+      "item_id": "L5_LIS_C01",
+      "level": 5,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "command_to_picture",
+      "instruction_zh": "听一听，这个人让你做什么？",
+      "audio_content": "Show me your hands.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "child_showing_hands", "img": "img:show_hands"},
+        {"id": "B", "type": "picture", "content": "child_showing_feet", "img": "img:show_feet"},
+        {"id": "C", "type": "picture", "content": "child_clapping", "img": "img:clapping"},
+        {"id": "D", "type": "picture", "content": "child_waving", "img": "img:waving"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:Show me your hands."],
+      "skill_focus": "确认题 — 简单指令（回退到L3难度）",
+      "distractor_logic": "hands/feet身体部位对比，但动作差异明显",
+      "irt": {"b": -2.0, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L5_READ_P01",
+      "level": 5,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "word_picture_match",
+      "instruction_zh": "看这个词，它说的是哪个？",
+      "stimulus_word": "sun",
+      "options": [
+        {"id": "A", "type": "picture", "content": "sun", "img": "img:sun"},
+        {"id": "B", "type": "picture", "content": "son_boy", "img": "img:boy"},
+        {"id": "C", "type": "picture", "content": "sit_action", "img": "img:sit"},
+        {"id": "D", "type": "picture", "content": "six_number", "img": "img:number_6"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "CVC词辨识 — 同音异义干扰 (sun/son)",
+      "distractor_logic": "sun/son发音相同但拼写不同，sit/six首字母相同。高区分度题",
+      "irt": {"b": -1.3, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L5_READ_P02",
+      "level": 5,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "letter_visual_match",
+      "instruction_zh": "请找到和上面一样的小写字母",
+      "stimulus": "b",
+      "options": [
+        {"id": "A", "type": "letter", "content": "b"},
+        {"id": "B", "type": "letter", "content": "d"},
+        {"id": "C", "type": "letter", "content": "p"},
+        {"id": "D", "type": "letter", "content": "q"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "小写字母辨识 — 最高混淆组 b/d/p/q",
+      "distractor_logic": "b/d水平镜像、b/p垂直翻转、b/q对角翻转。L1-5阅读维度最难的题",
+      "irt": {"b": -1.0, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L5_READ_C01",
+      "level": 5,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "word_picture_match",
+      "instruction_zh": "看这个词，它说的是哪个？",
+      "stimulus_word": "fish",
+      "options": [
+        {"id": "A", "type": "picture", "content": "ball", "img": "img:ball"},
+        {"id": "B", "type": "picture", "content": "fish", "img": "img:fish"},
+        {"id": "C", "type": "picture", "content": "tree", "img": "img:tree"},
+        {"id": "D", "type": "picture", "content": "car", "img": "img:car"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — 高频CVC词，干扰项视觉差异大",
+      "distractor_logic": "fish图片辨识度高，回退到L3难度确认解码能力下界",
+      "irt": {"b": -2.2, "a": 0.6, "c": 0.25}
+    }
+  ]
+}

@@ -1,0 +1,1241 @@
+{
+  "_meta": {
+    "version": "2.0",
+    "created": "2026-04-07",
+    "description": "OMNI-LEARN OS IRT自适应入学测试题库 · L21-L25 (A2 Entry)",
+    "level_range": "L21-L25",
+    "cefr": "A2 Entry",
+    "total_items": 55,
+    "instruction_language": "bilingual — 主测题双语（zh+en并列），确认题纯中文",
+
+    "design_notes": {
+      "vs_L16_L20": [
+        "①CEFR跨越：L21标志从A1 Consolidation进入A2 Entry。学生已能处理过去时、第三人称单数、情态动词；现在需要掌握更复杂的时态系统和句式",
+        "②语法核心转变：L21引入现在完成时(have/has + 过去分词)，L22攻克比较级/最高级(-er/-est/more/most)，L23引入going to将来时，L24覆盖how+形容词疑问句(how long/far/often/many/much)，L25引入现在完成时vs一般过去时对比（have you ever vs did you）",
+        "③词汇密度升级：开始出现同义词辨析(big/large/huge)、搭配关系(make a mistake/do homework)、抽象名词(opinion/experience/advice)、情感类复合表达(feel like doing/be keen on)",
+        "④听力升级到6-8句语篇，出现说话人观点类题目(What does the speaker think about...?)，推断题(inference)增加复杂度",
+        "⑤阅读首次出现opinion_text（带有说话人观点的文章）和argument_follow（理解论点逻辑）；语篇长度6-9句；main_idea和title_choice成为常规题型而非新鲜事物"
+      ],
+      "grammar_progression": {
+        "L21": "现在完成时 have/has + 过去分词 — 表示经历(I have been to...)和已完成动作(She has finished...)",
+        "L22": "形容词比较级/最高级 — 规则变化(-er/-est)和不规则(good/better/best, bad/worse/worst) + more/most",
+        "L23": "going to 将来时 — be going to + 动词原形，表示计划和预测；与will的初步区分",
+        "L24": "how + 形容词/副词疑问句 — how long/far/often/many/much + be/do结构",
+        "L25": "现在完成时 vs 一般过去时对比 — Have you ever...? vs Did you...? 时间状语辨别(ever/never/already vs yesterday/last week)"
+      },
+      "difficulty_band": "L21主测题 b≈2.0~2.2 → L25主测题 b≈2.8~3.0，每级递增约0.2。确认题比当前级别低约1.1，与L20确认题（b≈0.6~0.7）平滑衔接",
+      "bilingual_ux_note": "与L11-20一致：主测题双语，确认题纯中文，确认题界面英文区域以省略号替代"
+    },
+
+    "adaptive_strategy": {
+      "name": "2-wrong-1-confirm",
+      "confirm_fallback": "确认题难度 = 当前级别 - 2（最低L21）。若学生在L21也需确认，跨库使用L16-20题库的L20确认题"
+    },
+
+    "dimension_weights": {
+      "vocabulary": 0.35,
+      "listening": 0.30,
+      "reading": 0.25,
+      "grammar": 0.10
+    },
+
+    "item_types_new_in_L21_L25": {
+      "collocation_gap_fill": "选正确动词/名词搭配完成句子，如 make a mistake / do homework（L22-23词汇维度）",
+      "synonym_choice": "看语境选出与划线词意思最接近的词（L23-24词汇维度）",
+      "opinion_text_reading": "读带有说话人观点的文段，回答What does the writer think/feel about...?（L22-25阅读维度）",
+      "speaker_opinion_listening": "听段落后回答说话人的观点或态度（L23-25听力维度）",
+      "tense_contrast_gap_fill": "在语境中区分现在完成时和一般过去时并填入正确形式（L25语法维度）",
+      "how_question_response": "听How long/far/often...?疑问句，选出最合适的回答（L24听力维度）"
+    }
+  },
+
+  "items": [
+
+    {
+      "item_id": "L21_VOC_P01",
+      "level": 21,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，选出你听到的意思",
+      "instruction_en": "Listen and choose the correct picture.",
+      "audio_content": "She has already packed her suitcase for the trip.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "girl_packed_suitcase_ready", "img": "img:girl_packed_suitcase"},
+        {"id": "B", "type": "picture", "content": "girl_unpacking_suitcase", "img": "img:girl_unpacking"},
+        {"id": "C", "type": "picture", "content": "girl_packing_suitcase_now", "img": "img:girl_packing_now"},
+        {"id": "D", "type": "picture", "content": "boy_packed_suitcase_ready", "img": "img:boy_packed_suitcase"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:She has already packed her suitcase for the trip."],
+      "skill_focus": "现在完成时语境词 already + 动词pack的过去分词packed",
+      "distractor_logic": "B=动作反向(unpacking)；C=正在进行(packing now，非完成)；D=主语错(boy)",
+      "irt": {"b": 2.0, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L21_VOC_P02",
+      "level": 21,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "picture_to_word",
+      "instruction_zh": "看图，选出最准确描述这张图的词",
+      "instruction_en": "Look at the picture. Choose the best word.",
+      "picture_shown": "crowded_busy_market_street",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "crowded"},
+        {"id": "B", "type": "text_en", "content": "noisy"},
+        {"id": "C", "type": "text_en", "content": "dirty"},
+        {"id": "D", "type": "text_en", "content": "dangerous"}
+      ],
+      "correct": "A",
+      "media_required": ["img:crowded_market"],
+      "skill_focus": "形容词语义精确 — crowded(拥挤)，与noisy/dirty/dangerous的语义区分",
+      "distractor_logic": "noisy/dirty/dangerous都可能描述市场，但图片最突出的特征是人多拥挤；crowded是视觉最直接的描述",
+      "irt": {"b": 2.1, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L21_VOC_C01",
+      "level": 21,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "phrasal_verb_picture",
+      "instruction_zh": "看图，选出描述这张图的词组",
+      "picture_shown": "girl_looking_up_word_in_dictionary",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "look up"},
+        {"id": "B", "type": "text_en", "content": "look after"},
+        {"id": "C", "type": "text_en", "content": "look for"},
+        {"id": "D", "type": "text_en", "content": "look out"}
+      ],
+      "correct": "A",
+      "media_required": ["img:girl_dictionary"],
+      "skill_focus": "确认题 — look up查找（回退L20难度）",
+      "distractor_logic": "与L20_VOC_P02相同图片，作为确认题",
+      "irt": {"b": 0.8, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L21_LIS_P01",
+      "level": 21,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "instruction_en": "Listen and answer the question.",
+      "audio_content": "Marcus has always wanted to learn to cook. Last month, he finally started a cooking class. He has already learned to make pasta and soup. His family says everything tastes delicious. Next week, he is going to try making a chocolate cake.",
+      "question_zh": "Marcus已经学会做什么了？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "意面和汤"},
+        {"id": "B", "type": "text_zh", "content": "意面和巧克力蛋糕"},
+        {"id": "C", "type": "text_zh", "content": "汤和巧克力蛋糕"},
+        {"id": "D", "type": "text_zh", "content": "只有意面"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:Marcus has always wanted to learn to cook. Last month, he finally started a cooking class. He has already learned to make pasta and soup. His family says everything tastes delicious. Next week, he is going to try making a chocolate cake."],
+      "skill_focus": "现在完成时 has already learned + going to将来时区分，定位已完成vs将来计划",
+      "distractor_logic": "B/C把巧克力蛋糕(将来计划)误算为已完成；D只取了一半",
+      "irt": {"b": 2.0, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L21_LIS_P02",
+      "level": 21,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "inference_listening",
+      "instruction_zh": "听一段话，然后推断",
+      "instruction_en": "Listen and make an inference.",
+      "audio_content": "A: Have you seen my keys? I've looked everywhere. B: Did you check your coat pockets? A: Yes, twice. And the kitchen table. B: What about the bathroom? You sometimes leave things there. A: Oh! You're right — they're here!",
+      "question_zh": "钥匙在哪里找到的？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "外套口袋里"},
+        {"id": "B", "type": "text_zh", "content": "厨房桌子上"},
+        {"id": "C", "type": "text_zh", "content": "浴室里"},
+        {"id": "D", "type": "text_zh", "content": "对话中没有说"}
+      ],
+      "correct": "C",
+      "media_required": ["audio_tts_dialogue:Have you seen my keys? I've looked everywhere. Did you check your coat pockets? Yes, twice. And the kitchen table. What about the bathroom? You sometimes leave things there. Oh! You're right — they're here!"],
+      "skill_focus": "现在完成时 have seen/have looked + 推断 they're here对应的最后一个地点",
+      "distractor_logic": "A/B是已经检查过排除的地点；they're here出现在提到bathroom之后，需要追踪对话顺序",
+      "irt": {"b": 2.1, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L21_LIS_C01",
+      "level": 21,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "audio_content": "Last week, our school had a science fair. Our class made a model of the solar system. We worked on it for three days. Our teacher said it was the best project in the school.",
+      "question_zh": "老师对他们的项目有什么评价？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "是全校最好的项目"},
+        {"id": "B", "type": "text_zh", "content": "做得不错但不是最好的"},
+        {"id": "C", "type": "text_zh", "content": "花的时间太长了"},
+        {"id": "D", "type": "text_zh", "content": "想法很有创意"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:Last week, our school had a science fair. Our class made a model of the solar system. We worked on it for three days. Our teacher said it was the best project in the school."],
+      "skill_focus": "确认题 — 过去时叙事评价提取（回退L19难度）",
+      "distractor_logic": "the best project直接出现在末句",
+      "irt": {"b": 0.8, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L21_READ_P01",
+      "level": 21,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read the passage and answer the question.",
+      "stimulus_text": "Sophie has lived in three different countries. She was born in France, moved to Canada when she was six, and came to the UK two years ago. She speaks French, English and a little Spanish. Sophie says living in different places has taught her a lot about people.",
+      "question_zh": "Sophie现在住在哪里？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "法国"},
+        {"id": "B", "type": "text_zh", "content": "加拿大"},
+        {"id": "C", "type": "text_zh", "content": "英国"},
+        {"id": "D", "type": "text_zh", "content": "西班牙"}
+      ],
+      "correct": "C",
+      "media_required": [],
+      "skill_focus": "现在完成时has lived + 一般过去时时间线梳理，定位最近一次移动",
+      "distractor_logic": "A=出生地；B=之前住过；D=混淆语言学习(Spanish)和居住地",
+      "irt": {"b": 2.0, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L21_READ_P02",
+      "level": 21,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read and answer the question.",
+      "stimulus_text": "Have you ever tried a sport that scared you at first? I have. Two years ago, I tried rock climbing for the first time. My hands were shaking and my legs felt like jelly. But my instructor was patient and encouraging. By the end of the day, I had climbed to the top. It was one of the best feelings of my life.",
+      "question_zh": "叙述者第一次爬岩时有什么感受？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "非常兴奋，迫不及待"},
+        {"id": "B", "type": "text_zh", "content": "害怕，手脚发抖"},
+        {"id": "C", "type": "text_zh", "content": "很平静，没什么感觉"},
+        {"id": "D", "type": "text_zh", "content": "生气，因为教练太严格"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "Have you ever...? + 个人经历叙述，提取情绪描写(hands shaking/legs like jelly)",
+      "distractor_logic": "A与scared/shaking矛盾；C/D无原文依据；需理解hands shaking和legs like jelly是恐惧的身体表现",
+      "irt": {"b": 2.1, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L21_READ_C01",
+      "level": 21,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "title_choice",
+      "instruction_zh": "读一读，为这段话选一个最合适的标题",
+      "stimulus_text": "Twenty years ago, this neighbourhood was very different. There was a small park where children played. There were three little shops on the main road. Now the park is gone. There are tall apartment buildings where the shops used to be.",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "为什么人们要搬到新社区"},
+        {"id": "B", "type": "text_zh", "content": "一个社区二十年间的变化"},
+        {"id": "C", "type": "text_zh", "content": "公园对社区的重要性"},
+        {"id": "D", "type": "text_zh", "content": "城市里建新房子"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — title_choice整体概括（回退L20难度）",
+      "distractor_logic": "与L20_READ_P01同语篇缩短版",
+      "irt": {"b": 0.9, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L21_GRAM_P01",
+      "level": 21,
+      "dimension": "grammar",
+      "role": "primary",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词或词组填进去，让句子语法正确",
+      "instruction_en": "Choose the correct option to complete the sentence.",
+      "stimulus_text": "I can't find my phone. I think I _____ it on the bus.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "leave"},
+        {"id": "B", "type": "text_en", "content": "left"},
+        {"id": "C", "type": "text_en", "content": "have left"},
+        {"id": "D", "type": "text_en", "content": "am leaving"}
+      ],
+      "correct": "C",
+      "media_required": [],
+      "skill_focus": "现在完成时 have left — 过去动作对现在的影响（现在找不到手机）",
+      "distractor_logic": "B=过去时(left)语法上不算错但I think提示推测性，have left更自然；A=原形；D=进行时逻辑错误",
+      "irt": {"b": 2.1, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L21_GRAM_C01",
+      "level": 21,
+      "dimension": "grammar",
+      "role": "confirm",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子语法正确",
+      "stimulus_text": "_____ you visit the museum last weekend? — Yes, we did.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "Do"},
+        {"id": "B", "type": "text_en", "content": "Did"},
+        {"id": "C", "type": "text_en", "content": "Have"},
+        {"id": "D", "type": "text_en", "content": "Were"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — Did疑问句（回退L19难度），区分Did/Have",
+      "distractor_logic": "Have引入现在完成时疑问（但回答应该是Yes, we have，此处Yes, we did是提示）",
+      "irt": {"b": 0.8, "a": 0.7, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L22_VOC_P01",
+      "level": 22,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "collocation_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子说得通",
+      "instruction_en": "Choose the correct word to complete the sentence.",
+      "stimulus_text": "Don't worry — everyone _____ mistakes when they're learning something new.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "does"},
+        {"id": "B", "type": "text_en", "content": "makes"},
+        {"id": "C", "type": "text_en", "content": "has"},
+        {"id": "D", "type": "text_en", "content": "takes"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "动词搭配 make a mistake（不用do/have/take）",
+      "distractor_logic": "do/make混淆是中文母语者最常见的搭配错误；mistakes只与make搭配",
+      "irt": {"b": 2.2, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L22_VOC_P02",
+      "level": 22,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，选出你听到的意思",
+      "instruction_en": "Listen and choose the correct picture.",
+      "audio_content": "The new bridge is much longer than the old one.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "new_bridge_longer", "img": "img:bridge_compare_longer"},
+        {"id": "B", "type": "picture", "content": "new_bridge_shorter", "img": "img:bridge_compare_shorter"},
+        {"id": "C", "type": "picture", "content": "new_bridge_wider", "img": "img:bridge_compare_wider"},
+        {"id": "D", "type": "picture", "content": "bridges_same_length", "img": "img:bridge_equal"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:The new bridge is much longer than the old one."],
+      "skill_focus": "比较级 longer than + much强调程度，区分longer/shorter/wider",
+      "distractor_logic": "B=方向反转；C=维度错(wider≠longer)；D=无差异。much强调程度差异大",
+      "irt": {"b": 2.2, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L22_VOC_C01",
+      "level": 22,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "collocation_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子说得通",
+      "stimulus_text": "I always _____ my homework before dinner.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "make"},
+        {"id": "B", "type": "text_en", "content": "do"},
+        {"id": "C", "type": "text_en", "content": "have"},
+        {"id": "D", "type": "text_en", "content": "take"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — do homework（与make a mistake对比，回退L21难度）",
+      "distractor_logic": "homework只与do搭配；make/have/take均不正确",
+      "irt": {"b": 0.9, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L22_LIS_P01",
+      "level": 22,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "instruction_en": "Listen and answer the question.",
+      "audio_content": "My town has changed a lot in the last ten years. There are more shops and restaurants than before, but there are fewer green spaces. The streets are busier and noisier. Some people think the changes are great because there are more jobs. Others think the town has lost its friendly feeling.",
+      "question_zh": "有些人为什么认为这些变化是好的？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "因为商店更多了"},
+        {"id": "B", "type": "text_zh", "content": "因为工作机会更多了"},
+        {"id": "C", "type": "text_zh", "content": "因为街道更安静了"},
+        {"id": "D", "type": "text_zh", "content": "因为绿化更多了"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:My town has changed a lot in the last ten years. There are more shops and restaurants than before, but there are fewer green spaces. The streets are busier and noisier. Some people think the changes are great because there are more jobs. Others think the town has lost its friendly feeling."],
+      "skill_focus": "比较级 more/fewer/busier/noisier + 观点辨别(Some people think vs Others think)",
+      "distractor_logic": "A=原文有提到但不是认为好的原因；C/D与原文矛盾(busier/fewer green spaces)；需定位because",
+      "irt": {"b": 2.2, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L22_LIS_P02",
+      "level": 22,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "speaker_opinion_listening",
+      "instruction_zh": "听一段话，然后回答：说话人对这件事有什么看法？",
+      "instruction_en": "Listen and answer: What is the speaker's opinion?",
+      "audio_content": "In my opinion, reading books is better than watching TV. When you read, you use your imagination and you learn new words. TV is entertaining, but it does all the thinking for you. I think children who read a lot do better at school.",
+      "question_zh": "说话人的主要观点是什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "看电视比读书更有趣"},
+        {"id": "B", "type": "text_zh", "content": "读书对孩子比看电视更好"},
+        {"id": "C", "type": "text_zh", "content": "看电视和读书一样重要"},
+        {"id": "D", "type": "text_zh", "content": "孩子应该既读书又看电视"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:In my opinion, reading books is better than watching TV. When you read, you use your imagination and you learn new words. TV is entertaining, but it does all the thinking for you. I think children who read a lot do better at school."],
+      "skill_focus": "speaker_opinion题型 — In my opinion/I think信号词识别，比较级better than",
+      "distractor_logic": "A与原文完全相反；C/D是无依据的中间立场；需识别比较级better+观点信号词",
+      "irt": {"b": 2.3, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L22_LIS_C01",
+      "level": 22,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "audio_content": "When my grandparents were young, there was no internet. If they wanted information, they had to go to the library. Today, my brother can find anything in seconds on his phone.",
+      "question_zh": "以前人们要找信息需要做什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "去图书馆"},
+        {"id": "B", "type": "text_zh", "content": "用手机搜索"},
+        {"id": "C", "type": "text_zh", "content": "问朋友"},
+        {"id": "D", "type": "text_zh", "content": "用电脑"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:When my grandparents were young, there was no internet. If they wanted information, they had to go to the library. Today, my brother can find anything in seconds on his phone."],
+      "skill_focus": "确认题 — there was/were过去时对比（回退L20难度）",
+      "distractor_logic": "had to go to the library直接给出答案",
+      "irt": {"b": 0.9, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L22_READ_P01",
+      "level": 22,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "opinion_text_reading",
+      "instruction_zh": "读一读，然后回答：作者对这件事有什么看法？",
+      "instruction_en": "Read the passage. What is the writer's opinion?",
+      "stimulus_text": "Some people say that homework is the best way to help students learn. I disagree. In my view, children already spend six or seven hours at school. After that, they need time to rest, play and be with their families. Too much homework makes children stressed and tired. I believe free time is just as important as study time.",
+      "question_zh": "作者的主要观点是什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "家庭作业是学习最好的方式"},
+        {"id": "B", "type": "text_zh", "content": "孩子需要更多时间在学校学习"},
+        {"id": "C", "type": "text_zh", "content": "自由时间和学习时间一样重要，作业太多不好"},
+        {"id": "D", "type": "text_zh", "content": "孩子应该完全不做家庭作业"}
+      ],
+      "correct": "C",
+      "media_required": [],
+      "skill_focus": "opinion_text — I disagree/In my view/I believe观点信号词，just as important as比较结构",
+      "distractor_logic": "A是作者反驳的观点；D过度推断（原文说too much homework，非no homework）；C精确概括just as important as",
+      "irt": {"b": 2.2, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L22_READ_P02",
+      "level": 22,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read and answer the question.",
+      "stimulus_text": "The cheetah is the fastest land animal. It can run at over 100 kilometres per hour. However, it can only keep this speed for about 30 seconds before it gets too tired. The cheetah's biggest enemies are lions and hyenas, which often steal its food after a hunt.",
+      "question_zh": "猎豹高速奔跑的最大限制是什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "狮子和鬣狗会抢走它的猎物"},
+        {"id": "B", "type": "text_zh", "content": "它只能维持高速约30秒"},
+        {"id": "C", "type": "text_zh", "content": "它的速度只有100公里每小时"},
+        {"id": "D", "type": "text_zh", "content": "它在夜间看不清楚"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "However转折 — 速度是优点，but+时间限制是constraint；提取限制条件",
+      "distractor_logic": "A是另一个问题(enemies)；C把over 100改成exactly 100；D无原文依据",
+      "irt": {"b": 2.3, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L22_READ_C01",
+      "level": 22,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "stimulus_text": "Sophie has lived in three different countries. She was born in France, moved to Canada when she was six, and came to the UK two years ago. She speaks French, English and a little Spanish.",
+      "question_zh": "Sophie在哪里出生？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "法国"},
+        {"id": "B", "type": "text_zh", "content": "加拿大"},
+        {"id": "C", "type": "text_zh", "content": "英国"},
+        {"id": "D", "type": "text_zh", "content": "西班牙"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "确认题 — 时间线直接提取was born in（回退L21难度）",
+      "distractor_logic": "born in France直接给出答案，区分出生地和现居地",
+      "irt": {"b": 0.9, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L22_GRAM_P01",
+      "level": 22,
+      "dimension": "grammar",
+      "role": "primary",
+      "item_type": "grammar_error_spot",
+      "instruction_zh": "找出句子中的语法错误，选出正确的版本",
+      "instruction_en": "Find the grammar mistake. Choose the correct version.",
+      "stimulus_text": "This is the more interesting book I have ever read.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "This is the most interesting book I have ever read."},
+        {"id": "B", "type": "text_en", "content": "This is the more interestingly book I have ever read."},
+        {"id": "C", "type": "text_en", "content": "This is the most interestingly book I have ever read."},
+        {"id": "D", "type": "text_en", "content": "This is the more interesting book I had ever read."}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "最高级 the most interesting（不用more） + I have ever读（现在完成时经历句）",
+      "distractor_logic": "B/C=副词interestingly不修饰名词book；D=保留more错误；A同时修正more→most",
+      "irt": {"b": 2.2, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L22_GRAM_C01",
+      "level": 22,
+      "dimension": "grammar",
+      "role": "confirm",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词或词组填进去，让句子语法正确",
+      "stimulus_text": "I can't find my phone. I think I _____ it on the bus.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "leave"},
+        {"id": "B", "type": "text_en", "content": "left"},
+        {"id": "C", "type": "text_en", "content": "have left"},
+        {"id": "D", "type": "text_en", "content": "am leaving"}
+      ],
+      "correct": "C",
+      "media_required": [],
+      "skill_focus": "确认题 — 现在完成时 have left（回退L21难度）",
+      "distractor_logic": "与L21_GRAM_P01相同刺激，作为确认题",
+      "irt": {"b": 1.0, "a": 0.7, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L23_VOC_P01",
+      "level": 23,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "collocation_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子说得通",
+      "instruction_en": "Choose the correct word to complete the sentence.",
+      "stimulus_text": "It took me a long time to _____ courage and ask for help.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "make"},
+        {"id": "B", "type": "text_en", "content": "take"},
+        {"id": "C", "type": "text_en", "content": "find"},
+        {"id": "D", "type": "text_en", "content": "do"}
+      ],
+      "correct": "C",
+      "media_required": [],
+      "skill_focus": "动词搭配 find courage（不用make/take/do）",
+      "distractor_logic": "find courage是固定搭配；take courage也存在但常与it搭配(it takes courage)；此句语境下find最自然",
+      "irt": {"b": 2.4, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L23_VOC_P02",
+      "level": 23,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "synonym_choice",
+      "instruction_zh": "划线的词在这句话里是什么意思？选出最接近的词",
+      "instruction_en": "What does the underlined word mean in this sentence? Choose the closest meaning.",
+      "stimulus_text": "The film was so __dull__ that half the audience fell asleep.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "exciting"},
+        {"id": "B", "type": "text_en", "content": "boring"},
+        {"id": "C", "type": "text_en", "content": "short"},
+        {"id": "D", "type": "text_en", "content": "loud"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "词义推断 dull=boring，从fell asleep验证",
+      "distractor_logic": "A与fell asleep的结果矛盾；C/D与语境无关；fell asleep是dull=boring的语境证据",
+      "irt": {"b": 2.4, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L23_VOC_C01",
+      "level": 23,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "collocation_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子说得通",
+      "stimulus_text": "Don't worry — everyone _____ mistakes when they're learning something new.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "does"},
+        {"id": "B", "type": "text_en", "content": "makes"},
+        {"id": "C", "type": "text_en", "content": "has"},
+        {"id": "D", "type": "text_en", "content": "takes"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — make a mistake搭配（回退L22难度）",
+      "distractor_logic": "与L22_VOC_P01相同刺激",
+      "irt": {"b": 1.1, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L23_LIS_P01",
+      "level": 23,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "speaker_opinion_listening",
+      "instruction_zh": "听一段话，然后回答：说话人对这件事有什么看法？",
+      "instruction_en": "Listen and answer: What is the speaker's opinion?",
+      "audio_content": "I'm going to tell you why I think zoos are a bad idea. Animals in zoos can't live natural lives. They have much less space than they would in the wild. Some animals become stressed or depressed. Of course, zoos do help with conservation, but I think we should find better ways to protect animals.",
+      "question_zh": "说话人对动物园有什么看法？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "动物园对动物保护非常重要"},
+        {"id": "B", "type": "text_zh", "content": "动物园总体上是个坏主意，尽管有一定好处"},
+        {"id": "C", "type": "text_zh", "content": "所有动物园都应该立刻关闭"},
+        {"id": "D", "type": "text_zh", "content": "动物园对人类有好处但对动物没有"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:I'm going to tell you why I think zoos are a bad idea. Animals in zoos can't live natural lives. They have much less space than they would in the wild. Some animals become stressed or depressed. Of course, zoos do help with conservation, but I think we should find better ways to protect animals."],
+      "skill_focus": "观点听力 — I think...bad + Of course...but结构，识别让步但坚持观点",
+      "distractor_logic": "A是被让步的观点不是主要立场；C过度推断(原文没说立刻关闭)；D把动物和人类对立化",
+      "irt": {"b": 2.4, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L23_LIS_P02",
+      "level": 23,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "instruction_en": "Listen and answer the question.",
+      "audio_content": "Next summer, our school is going to do something different. Instead of a normal school trip, we are going to spend three days helping at a local farm. We are going to look after animals, plant vegetables and repair fences. Our teacher says it will teach us about where our food comes from. I'm a bit nervous, but mostly excited.",
+      "question_zh": "学校下次夏天计划做什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "一次普通的学校旅行"},
+        {"id": "B", "type": "text_zh", "content": "在当地农场帮忙三天"},
+        {"id": "C", "type": "text_zh", "content": "学习如何种蔬菜"},
+        {"id": "D", "type": "text_zh", "content": "参观一个大型农业展览"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:Next summer, our school is going to do something different. Instead of a normal school trip, we are going to spend three days helping at a local farm. We are going to look after animals, plant vegetables and repair fences. Our teacher says it will teach us about where our food comes from. I'm a bit nervous, but mostly excited."],
+      "skill_focus": "going to将来时 — 多个is going to串联，定位整体活动而非某个细节",
+      "distractor_logic": "C是活动之一不是全部；A是being replaced的旧方式；D无原文依据",
+      "irt": {"b": 2.3, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L23_LIS_C01",
+      "level": 23,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "speaker_opinion_listening",
+      "instruction_zh": "听一段话，然后回答：说话人的主要观点是什么？",
+      "audio_content": "In my opinion, reading books is better than watching TV. When you read, you use your imagination and learn new words. TV is entertaining, but it does all the thinking for you.",
+      "question_zh": "说话人的主要观点是什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "看电视比读书更有趣"},
+        {"id": "B", "type": "text_zh", "content": "读书比看电视对孩子更好"},
+        {"id": "C", "type": "text_zh", "content": "看电视和读书一样重要"},
+        {"id": "D", "type": "text_zh", "content": "孩子应该既读书又看电视"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:In my opinion, reading books is better than watching TV. When you read, you use your imagination and learn new words. TV is entertaining, but it does all the thinking for you."],
+      "skill_focus": "确认题 — 观点识别（回退L22难度，缩短版）",
+      "distractor_logic": "In my opinion信号词清楚，better than直接给出比较结果",
+      "irt": {"b": 1.1, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L23_READ_P01",
+      "level": 23,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "opinion_text_reading",
+      "instruction_zh": "读一读，然后回答：作者对这件事有什么看法？",
+      "instruction_en": "Read the passage. What is the writer's opinion?",
+      "stimulus_text": "Many people are going to buy electric cars in the future. I think this is a great idea. Electric cars produce less pollution than petrol cars. They are also cheaper to run. However, there is still a problem — there are not enough charging stations yet. The government needs to build more before electric cars can become really popular.",
+      "question_zh": "作者对电动汽车有什么看法？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "电动汽车太贵了，大家买不起"},
+        {"id": "B", "type": "text_zh", "content": "电动汽车是个好主意，但充电站还不够"},
+        {"id": "C", "type": "text_zh", "content": "电动汽车和普通汽车没什么区别"},
+        {"id": "D", "type": "text_zh", "content": "政府不应该支持电动汽车"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "I think + However结构 — 支持但有保留，going to将来时预测",
+      "distractor_logic": "A与cheaper to run矛盾；C与less pollution等优点矛盾；D与needs to build more相反",
+      "irt": {"b": 2.4, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L23_READ_P02",
+      "level": 23,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read and answer the question.",
+      "stimulus_text": "My grandfather has lived in the same small village his whole life. He has never been on an aeroplane and has never left the country. Some people feel sorry for him, but he doesn't mind at all. He says he has everything he needs — good neighbours, fresh air and his garden. He has grown vegetables there for forty years.",
+      "question_zh": "关于祖父，可以推断出什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "他对自己的生活感到不满"},
+        {"id": "B", "type": "text_zh", "content": "他很满足于简单的生活"},
+        {"id": "C", "type": "text_zh", "content": "他希望自己能出国旅行"},
+        {"id": "D", "type": "text_zh", "content": "他觉得别人可怜他是对的"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "现在完成时经历对比 has lived/never been/has grown — 从不抱怨推断满足感",
+      "distractor_logic": "A与doesn't mind矛盾；C与doesn't mind矛盾；D与doesn't mind相反；he has everything he needs是关键",
+      "irt": {"b": 2.5, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L23_READ_C01",
+      "level": 23,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "opinion_text_reading",
+      "instruction_zh": "读一读，然后回答：作者的主要观点是什么？",
+      "stimulus_text": "Some people say homework is the best way to learn. I disagree. Children already spend six or seven hours at school. They need time to rest and play. I believe free time is just as important as study time.",
+      "question_zh": "作者的主要观点是什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "家庭作业是学习最好的方式"},
+        {"id": "B", "type": "text_zh", "content": "自由时间和学习时间一样重要"},
+        {"id": "C", "type": "text_zh", "content": "孩子应该完全不做家庭作业"},
+        {"id": "D", "type": "text_zh", "content": "孩子应该在学校待更长时间"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — 观点文本理解（回退L22难度，缩短版）",
+      "distractor_logic": "I disagree/I believe信号词清楚；just as important直接给出结论",
+      "irt": {"b": 1.1, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L23_GRAM_P01",
+      "level": 23,
+      "dimension": "grammar",
+      "role": "primary",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词或词组填进去，让句子语法正确",
+      "instruction_en": "Choose the correct option to complete the sentence.",
+      "stimulus_text": "Look at those dark clouds! It _____ rain soon.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "is going to"},
+        {"id": "B", "type": "text_en", "content": "was going to"},
+        {"id": "C", "type": "text_en", "content": "has gone to"},
+        {"id": "D", "type": "text_en", "content": "will be going"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "going to将来时 — 基于现有证据(dark clouds)做预测",
+      "distractor_logic": "B=过去时；C=语义错误；D=将来进行时不合语境。Look at...提示现在可见的证据→going to预测",
+      "irt": {"b": 2.3, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L23_GRAM_C01",
+      "level": 23,
+      "dimension": "grammar",
+      "role": "confirm",
+      "item_type": "grammar_error_spot",
+      "instruction_zh": "找出句子中的语法错误，选出正确的版本",
+      "stimulus_text": "This is the more interesting book I have ever read.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "This is the most interesting book I have ever read."},
+        {"id": "B", "type": "text_en", "content": "This is the more interestingly book I have ever read."},
+        {"id": "C", "type": "text_en", "content": "This is the most interestingly book I have ever read."},
+        {"id": "D", "type": "text_en", "content": "This is the more interesting book I had ever read."}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "确认题 — 最高级 the most（回退L22难度）",
+      "distractor_logic": "与L22_GRAM_P01相同刺激",
+      "irt": {"b": 1.1, "a": 0.7, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L24_VOC_P01",
+      "level": 24,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "synonym_choice",
+      "instruction_zh": "划线的词在这句话里是什么意思？选出最接近的词",
+      "instruction_en": "What does the underlined word mean in this sentence? Choose the closest meaning.",
+      "stimulus_text": "Her advice was __invaluable__ — it completely changed how I thought about the problem.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "worthless"},
+        {"id": "B", "type": "text_en", "content": "extremely valuable"},
+        {"id": "C", "type": "text_en", "content": "not valid"},
+        {"id": "D", "type": "text_en", "content": "quite cheap"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "前缀in-的反义悖论 — invaluable≠not valuable（例外词），=extremely valuable",
+      "distractor_logic": "A是in-前缀的字面推断（错误）；B是正确意思；C/D是其他误读。completely changed是语境线索",
+      "irt": {"b": 2.6, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L24_VOC_P02",
+      "level": 24,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "collocation_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子说得通",
+      "instruction_en": "Choose the correct word to complete the sentence.",
+      "stimulus_text": "The doctor told her to _____ plenty of rest after the operation.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "get"},
+        {"id": "B", "type": "text_en", "content": "make"},
+        {"id": "C", "type": "text_en", "content": "do"},
+        {"id": "D", "type": "text_en", "content": "have"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "动词搭配 get rest（不用make/do/have）",
+      "distractor_logic": "have rest也可接受但get plenty of rest是更标准搭配；make/do与rest无固定搭配",
+      "irt": {"b": 2.6, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L24_VOC_C01",
+      "level": 24,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "synonym_choice",
+      "instruction_zh": "划线的词在这句话里是什么意思？选出最接近的词",
+      "stimulus_text": "The film was so __dull__ that half the audience fell asleep.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "exciting"},
+        {"id": "B", "type": "text_en", "content": "boring"},
+        {"id": "C", "type": "text_en", "content": "short"},
+        {"id": "D", "type": "text_en", "content": "loud"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — dull=boring（回退L23难度）",
+      "distractor_logic": "与L23_VOC_P02相同刺激",
+      "irt": {"b": 1.3, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L24_LIS_P01",
+      "level": 24,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "how_question_response",
+      "instruction_zh": "听一个问题，选出最合适的回答",
+      "instruction_en": "Listen to the question. Choose the best answer.",
+      "audio_content": "How long have you been studying English?",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "Three times a week."},
+        {"id": "B", "type": "text_en", "content": "For about four years."},
+        {"id": "C", "type": "text_en", "content": "Very well, thank you."},
+        {"id": "D", "type": "text_en", "content": "In the mornings."}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:How long have you been studying English?"],
+      "skill_focus": "How long + 现在完成时 — 回答须用for/since表示时间段",
+      "distractor_logic": "A=How often的回答；C=How well的回答；D=When的回答。For about four years是唯一时间段回答",
+      "irt": {"b": 2.5, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L24_LIS_P02",
+      "level": 24,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "speaker_opinion_listening",
+      "instruction_zh": "听一段话，然后回答：说话人的态度是什么？",
+      "instruction_en": "Listen and answer: What is the speaker's attitude?",
+      "audio_content": "I've tried to learn the piano three times in my life. Each time, I gave up after a few months. My teacher always said I had talent, but I think patience is more important than talent. The truth is, I just don't enjoy practising. Maybe I should find an instrument that's more fun to play.",
+      "question_zh": "说话人对自己学钢琴这件事有什么态度？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "非常后悔，想重新尝试"},
+        {"id": "B", "type": "text_zh", "content": "接受失败，反思原因并考虑新方向"},
+        {"id": "C", "type": "text_zh", "content": "觉得是老师的问题"},
+        {"id": "D", "type": "text_zh", "content": "认为天赋是最重要的"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:I've tried to learn the piano three times in my life. Each time, I gave up after a few months. My teacher always said I had talent, but I think patience is more important than talent. The truth is, I just don't enjoy practising. Maybe I should find an instrument that's more fun to play."],
+      "skill_focus": "态度推断 — I gave up/I just don't enjoy/Maybe I should + 整体语气反思",
+      "distractor_logic": "A与gave up矛盾；C与My teacher always said I had talent矛盾；D与patience is more important than talent矛盾",
+      "irt": {"b": 2.6, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L24_LIS_C01",
+      "level": 24,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "how_question_response",
+      "instruction_zh": "听一个问题，选出最合适的回答",
+      "audio_content": "How often do you exercise?",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "About thirty minutes."},
+        {"id": "B", "type": "text_en", "content": "Three times a week."},
+        {"id": "C", "type": "text_en", "content": "At the gym."},
+        {"id": "D", "type": "text_en", "content": "Very well."}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:How often do you exercise?"],
+      "skill_focus": "确认题 — How often疑问句回答频率（回退L19-20难度）",
+      "distractor_logic": "A=How long；C=Where；D=How well。Three times a week是频率回答",
+      "irt": {"b": 1.3, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L24_READ_P01",
+      "level": 24,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "opinion_text_reading",
+      "instruction_zh": "读一读，然后回答：作者对这件事有什么看法？",
+      "instruction_en": "Read the passage. What is the writer's opinion?",
+      "stimulus_text": "Social media can be useful for keeping in touch with friends and family. However, I have serious concerns about how much time young people spend on it. Research shows that teenagers who spend more than three hours a day on social media are more likely to feel anxious or unhappy. I think schools should teach students how to use social media responsibly, rather than just banning it.",
+      "question_zh": "作者对年轻人使用社交媒体有什么看法？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "社交媒体对年轻人完全有害，应该禁止"},
+        {"id": "B", "type": "text_zh", "content": "社交媒体有好处，但年轻人需要学会负责任地使用"},
+        {"id": "C", "type": "text_zh", "content": "研究显示社交媒体对健康没有影响"},
+        {"id": "D", "type": "text_zh", "content": "家长应该决定孩子是否使用社交媒体"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "However转折+rather than结构 — 承认好处+有顾虑+提出方案，非简单反对",
+      "distractor_logic": "A=过度推断（原文是teach responsibly, not ban）；C与research shows矛盾；D无原文依据",
+      "irt": {"b": 2.5, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L24_READ_P02",
+      "level": 24,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read and answer the question.",
+      "stimulus_text": "The Arctic fox has one of the most impressive natural coats in the animal kingdom. In winter, its fur is completely white, which helps it hide in the snow. In summer, it changes to brown or grey to match the rocks and plants. This ability to change colour is called seasonal camouflage. Without it, the fox would be much easier for predators to spot.",
+      "question_zh": "北极狐的皮毛夏天会变成什么颜色？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "白色"},
+        {"id": "B", "type": "text_zh", "content": "棕色或灰色"},
+        {"id": "C", "type": "text_zh", "content": "黑色"},
+        {"id": "D", "type": "text_zh", "content": "文中没有说"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "科普语篇信息提取 — 区分冬季(white)和夏季(brown or grey)的颜色",
+      "distractor_logic": "A是冬季颜色；C/D无原文依据；需注意In summer vs In winter的时间分隔",
+      "irt": {"b": 2.5, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L24_READ_C01",
+      "level": 24,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "stimulus_text": "My grandfather has lived in the same small village his whole life. He has never been on an aeroplane. He says he has everything he needs — good neighbours, fresh air and his garden. He has grown vegetables there for forty years.",
+      "question_zh": "关于祖父，可以推断出什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "他对自己的生活感到不满"},
+        {"id": "B", "type": "text_zh", "content": "他很满足于简单的生活"},
+        {"id": "C", "type": "text_zh", "content": "他希望能出国旅行"},
+        {"id": "D", "type": "text_zh", "content": "他认为别人可怜他是对的"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — 人物态度推断（回退L23难度，缩短版）",
+      "distractor_logic": "he has everything he needs是关键句",
+      "irt": {"b": 1.3, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L24_GRAM_P01",
+      "level": 24,
+      "dimension": "grammar",
+      "role": "primary",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词或词组填进去，让句子语法正确",
+      "instruction_en": "Choose the correct option to complete the sentence.",
+      "stimulus_text": "_____ far is it from your house to the nearest supermarket?",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "How"},
+        {"id": "B", "type": "text_en", "content": "What"},
+        {"id": "C", "type": "text_en", "content": "Which"},
+        {"id": "D", "type": "text_en", "content": "How much"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "How far疑问句 — 询问距离，与What/Which/How much区分",
+      "distractor_logic": "What far/Which far不合法；How much far不合法（far是形容词不用much）；How far是固定搭配",
+      "irt": {"b": 2.5, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L24_GRAM_C01",
+      "level": 24,
+      "dimension": "grammar",
+      "role": "confirm",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词或词组填进去，让句子语法正确",
+      "stimulus_text": "Look at those dark clouds! It _____ rain soon.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "is going to"},
+        {"id": "B", "type": "text_en", "content": "was going to"},
+        {"id": "C", "type": "text_en", "content": "has gone to"},
+        {"id": "D", "type": "text_en", "content": "goes to"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "确认题 — going to预测（回退L23难度）",
+      "distractor_logic": "与L23_GRAM_P01相同刺激",
+      "irt": {"b": 1.2, "a": 0.7, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L25_VOC_P01",
+      "level": 25,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "synonym_choice",
+      "instruction_zh": "划线的词在这句话里是什么意思？选出最接近的词",
+      "instruction_en": "What does the underlined word mean in this sentence? Choose the closest meaning.",
+      "stimulus_text": "The journalist's report was completely __impartial__ — she presented both sides without favouring either.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "biased"},
+        {"id": "B", "type": "text_en", "content": "fair and neutral"},
+        {"id": "C", "type": "text_en", "content": "incomplete"},
+        {"id": "D", "type": "text_en", "content": "very detailed"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "词义推断 impartial=fair/neutral，从presented both sides/without favouring验证",
+      "distractor_logic": "A是反义；C/D无原文支持；presented both sides without favouring提供直接语境证据",
+      "irt": {"b": 2.8, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L25_VOC_P02",
+      "level": 25,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "collocation_gap_fill",
+      "instruction_zh": "选一个词填进去，让句子说得通",
+      "instruction_en": "Choose the correct word to complete the sentence.",
+      "stimulus_text": "I really _____ the point of the lecture — I had no idea what the professor was trying to say.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "missed"},
+        {"id": "B", "type": "text_en", "content": "lost"},
+        {"id": "C", "type": "text_en", "content": "forgot"},
+        {"id": "D", "type": "text_en", "content": "dropped"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "动词搭配 miss the point（听不懂重点），与lost/forgot/dropped的区分",
+      "distractor_logic": "lost the point也有人用但miss the point是标准固定搭配；forgot/dropped与point无固定搭配",
+      "irt": {"b": 2.9, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L25_VOC_C01",
+      "level": 25,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "synonym_choice",
+      "instruction_zh": "划线的词在这句话里是什么意思？选出最接近的词",
+      "stimulus_text": "Her advice was __invaluable__ — it completely changed how I thought about the problem.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "worthless"},
+        {"id": "B", "type": "text_en", "content": "extremely valuable"},
+        {"id": "C", "type": "text_en", "content": "not valid"},
+        {"id": "D", "type": "text_en", "content": "quite ordinary"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — invaluable=extremely valuable（回退L24难度）",
+      "distractor_logic": "与L24_VOC_P01相同刺激，D选项微调",
+      "irt": {"b": 1.5, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L25_LIS_P01",
+      "level": 25,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "speaker_opinion_listening",
+      "instruction_zh": "听一段话，然后回答：说话人的主要论点是什么？",
+      "instruction_en": "Listen and answer: What is the speaker's main argument?",
+      "audio_content": "We often say that technology makes our lives easier. That's true in many ways. But I want to argue that it has also made us less patient. Before smartphones, if you had to wait for a bus, you just waited. Now, people can't wait thirty seconds without checking their phone. We've lost the ability to be comfortable with doing nothing. And I think that's a real problem.",
+      "question_zh": "说话人的主要论点是什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "智能手机让人们等公共汽车的时间更短了"},
+        {"id": "B", "type": "text_zh", "content": "科技虽有好处，但让人变得更缺乏耐心"},
+        {"id": "C", "type": "text_zh", "content": "人们应该完全停止使用智能手机"},
+        {"id": "D", "type": "text_zh", "content": "科技让生活变得更容易，这很好"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:We often say that technology makes our lives easier. That's true in many ways. But I want to argue that it has also made us less patient. Before smartphones, if you had to wait for a bus, you just waited. Now, people can't wait thirty seconds without checking their phone. We've lost the ability to be comfortable with doing nothing. And I think that's a real problem."],
+      "skill_focus": "论点追踪 — That's true BUT...结构，主要论点在but之后；less patient是核心词",
+      "distractor_logic": "A是例子不是论点；C是过度推断；D只取了让步部分(That's true)忽视了but后的主要论点",
+      "irt": {"b": 2.8, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L25_LIS_P02",
+      "level": 25,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一段话，回答问题",
+      "instruction_en": "Listen and answer the question.",
+      "audio_content": "Have you ever done something that turned out to be completely different from what you expected? Last year, I signed up for a pottery class. I thought it would be relaxing and easy. But shaping clay is much harder than it looks. My first pot collapsed, and my second one looked like a sad potato. By the fourth week, though, I had made something I was actually proud of. I've signed up again this year.",
+      "question_zh": "叙述者对陶艺课的最终感受是什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "太难了，他/她放弃了"},
+        {"id": "B", "type": "text_zh", "content": "比预期轻松，很享受"},
+        {"id": "C", "type": "text_zh", "content": "虽然很难但最终成功了，还报名继续学"},
+        {"id": "D", "type": "text_zh", "content": "做出来的作品不好，感到失望"}
+      ],
+      "correct": "C",
+      "media_required": ["audio_tts:Have you ever done something that turned out to be completely different from what you expected? Last year, I signed up for a pottery class. I thought it would be relaxing and easy. But shaping clay is much harder than it looks. My first pot collapsed, and my second one looked like a sad potato. By the fourth week, though, I had made something I was actually proud of. I've signed up again this year."],
+      "skill_focus": "现在完成时经历叙述 + though转折 + I've signed up again综合理解",
+      "distractor_logic": "A与I've signed up again矛盾；B与harder than it looks矛盾；D与proud of矛盾；需整合整段弧线",
+      "irt": {"b": 2.9, "a": 1.3, "c": 0.25}
+    },
+    {
+      "item_id": "L25_LIS_C01",
+      "level": 25,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "speaker_opinion_listening",
+      "instruction_zh": "听一段话，然后回答：说话人的主要观点是什么？",
+      "audio_content": "I'm going to tell you why I think zoos are a bad idea. Animals in zoos can't live natural lives. Of course, zoos do help with conservation, but I think we should find better ways to protect animals.",
+      "question_zh": "说话人对动物园总体持什么态度？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "动物园对保护动物非常重要"},
+        {"id": "B", "type": "text_zh", "content": "动物园总体上是个坏主意，尽管有一定好处"},
+        {"id": "C", "type": "text_zh", "content": "所有动物园都应该立刻关闭"},
+        {"id": "D", "type": "text_zh", "content": "动物园对人有好处但对动物没有"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:I'm going to tell you why I think zoos are a bad idea. Animals in zoos can't live natural lives. Of course, zoos do help with conservation, but I think we should find better ways to protect animals."],
+      "skill_focus": "确认题 — 让步but坚持主要观点（回退L23难度，缩短版）",
+      "distractor_logic": "Of course...but结构：but之后是主要立场",
+      "irt": {"b": 1.5, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L25_READ_P01",
+      "level": 25,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "opinion_text_reading",
+      "instruction_zh": "读一读，然后回答：作者的论点结构是怎样的？",
+      "instruction_en": "Read the passage. How does the writer structure their argument?",
+      "stimulus_text": "People often assume that introverts are shy or unfriendly. This is a misunderstanding. Introverts are simply people who find social situations draining rather than energising. They may enjoy being with others, but they need time alone to recharge. In fact, many introverts are excellent listeners and deep thinkers. The world needs both introverts and extroverts — each brings something the other cannot.",
+      "question_zh": "作者是怎么展开论点的？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "先提出一个常见误解，然后解释真实情况，最后得出结论"},
+        {"id": "B", "type": "text_zh", "content": "列举内向的人的所有缺点，然后给出建议"},
+        {"id": "C", "type": "text_zh", "content": "比较内向和外向的人谁更成功"},
+        {"id": "D", "type": "text_zh", "content": "介绍一项关于内向性格的科学研究"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "论点结构分析 — misconception→correction→nuance→conclusion，首次考查argument_follow",
+      "distractor_logic": "B/C/D均误读文章结构；关键信号词：People often assume(误解)→This is a misunderstanding(纠正)→In fact(深化)→The world needs(结论)",
+      "irt": {"b": 2.8, "a": 1.4, "c": 0.25}
+    },
+    {
+      "item_id": "L25_READ_P02",
+      "level": 25,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "short_paragraph_reading",
+      "instruction_zh": "读一读，回答问题",
+      "instruction_en": "Read and answer the question.",
+      "stimulus_text": "Clara has been playing chess since she was five years old. Last year, she entered her first national competition. She didn't win, but she learned a great deal. Since then, she has trained twice a week with a professional coach. She has already beaten players twice her age. Her coach says she has the potential to become a champion.",
+      "question_zh": "关于Clara，哪个说法是正确的？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "她去年赢得了全国比赛"},
+        {"id": "B", "type": "text_zh", "content": "她每周和教练训练两次，已经击败过年龄更大的选手"},
+        {"id": "C", "type": "text_zh", "content": "她的教练认为她永远不会成为冠军"},
+        {"id": "D", "type": "text_zh", "content": "她五岁才开始学下棋"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "现在完成时 has been playing/has trained/has beaten时间线整合，辨别事实与推断",
+      "distractor_logic": "A与didn't win矛盾；C与potential to become a champion矛盾；D与since she was five(5岁就开始)矛盾",
+      "irt": {"b": 2.9, "a": 1.4, "c": 0.25}
+    },
+    {
+      "item_id": "L25_READ_C01",
+      "level": 25,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "opinion_text_reading",
+      "instruction_zh": "读一读，然后回答：作者的主要观点是什么？",
+      "stimulus_text": "Social media can be useful for keeping in touch. However, I have concerns about how much time young people spend on it. Research shows more than three hours a day makes teenagers more anxious. I think schools should teach students to use it responsibly, rather than just banning it.",
+      "question_zh": "作者的主要建议是什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "完全禁止学生使用社交媒体"},
+        {"id": "B", "type": "text_zh", "content": "学校应该教学生负责任地使用社交媒体"},
+        {"id": "C", "type": "text_zh", "content": "社交媒体对青少年没有任何好处"},
+        {"id": "D", "type": "text_zh", "content": "家长应该控制孩子的手机使用时间"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — rather than结构提取建议（回退L24难度，缩短版）",
+      "distractor_logic": "rather than just banning it直接排除A；B是I think后的明确建议",
+      "irt": {"b": 1.5, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L25_GRAM_P01",
+      "level": 25,
+      "dimension": "grammar",
+      "role": "primary",
+      "item_type": "tense_contrast_gap_fill",
+      "instruction_zh": "根据语境，选出语法正确的选项",
+      "instruction_en": "Choose the grammatically correct option for this context.",
+      "stimulus_text": "A: Have you ever tried sushi? B: Yes, I _____ it for the first time when I visited Japan last year.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "have tried"},
+        {"id": "B", "type": "text_en", "content": "tried"},
+        {"id": "C", "type": "text_en", "content": "was trying"},
+        {"id": "D", "type": "text_en", "content": "try"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "现在完成时 vs 一般过去时对比 — Have you ever(完成时提问)但when+具体时间(last year)→过去时回答",
+      "distractor_logic": "A=现在完成时但后接when+last year矛盾（具体时间点用过去时）；C=过去进行时；D=原形",
+      "irt": {"b": 2.8, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L25_GRAM_C01",
+      "level": 25,
+      "dimension": "grammar",
+      "role": "confirm",
+      "item_type": "grammar_gap_fill",
+      "instruction_zh": "选一个词或词组填进去，让句子语法正确",
+      "stimulus_text": "I can't find my wallet. I think I _____ it at the restaurant.",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "leave"},
+        {"id": "B", "type": "text_en", "content": "left"},
+        {"id": "C", "type": "text_en", "content": "have left"},
+        {"id": "D", "type": "text_en", "content": "am leaving"}
+      ],
+      "correct": "C",
+      "media_required": [],
+      "skill_focus": "确认题 — 现在完成时 have left（回退L21难度，换了内容）",
+      "distractor_logic": "I can't find提示对现在的影响→have left；at the restaurant是具体地点非时间状语，不触发过去时",
+      "irt": {"b": 1.5, "a": 0.7, "c": 0.25}
+    }
+
+  ]
+}

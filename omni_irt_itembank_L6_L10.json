@@ -1,0 +1,956 @@
+{
+  "_meta": {
+    "version": "2.0",
+    "created": "2026-04-05",
+    "description": "OMNI-LEARN OS IRT自适应入学测试题库 · L6-L10 (Pre-A1b)",
+    "level_range": "L6-L10",
+    "cefr": "Pre-A1",
+    "total_items": 45,
+    "instruction_language": "zh",
+    "design_notes": {
+      "vocab_weight": "38% — CVC词汇、sight words、基础动词/形容词",
+      "listening_weight": "32% — 短指令、简单短语、单句理解",
+      "grammar_weight": "0% — 此阶段仍不测语法",
+      "reading_weight": "30% — Phonics解码、词-图匹配、简单句-图匹配",
+      "media_principle": "100%中文指令。阅读维度开始出现英文单词和短句作为测试刺激物，但题目指令仍为中文",
+      "vs_L1_L5": "与L1-5的关键区别：词汇从纯音频识别过渡到看词解码+音频双通道；阅读从字母辨识过渡到CVC词解码和句子-图片匹配；听力从音素辨别过渡到短指令和简单句理解"
+    },
+    "adaptive_strategy": {
+      "name": "2-wrong-1-confirm",
+      "confirm_fallback": "确认题难度 = 当前级别 - 2（最低L6）。若学生在L6也需确认，使用L1-5题库的L5确认题作为跨库回退"
+    },
+    "dimension_weights": {
+      "vocabulary": 0.38,
+      "listening": 0.32,
+      "reading": 0.30,
+      "grammar": 0.00
+    }
+  },
+
+  "items": [
+
+    {
+      "item_id": "L6_VOC_P01",
+      "level": 6,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "bed",
+      "options": [
+        {"id": "A", "type": "picture", "content": "bed", "img": "img:bed"},
+        {"id": "B", "type": "picture", "content": "bag", "img": "img:bag"},
+        {"id": "C", "type": "picture", "content": "bus", "img": "img:bus"},
+        {"id": "D", "type": "picture", "content": "box", "img": "img:box"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:bed"],
+      "skill_focus": "CVC词汇 — 同首辅音干扰(b_)",
+      "distractor_logic": "全部b开头CVC词，需精确辨识元音和尾辅音",
+      "irt": {"b": -1.8, "a": 0.9, "c": 0.25}
+    },
+    {
+      "item_id": "L6_VOC_P02",
+      "level": 6,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "picture_to_word",
+      "instruction_zh": "看图片，哪个词说的是这个？",
+      "picture_shown": "hen",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "hen"},
+        {"id": "B", "type": "text_en", "content": "pen"},
+        {"id": "C", "type": "text_en", "content": "ten"},
+        {"id": "D", "type": "text_en", "content": "men"}
+      ],
+      "correct": "A",
+      "media_required": ["img:hen"],
+      "skill_focus": "CVC词视觉辨识 — 同韵干扰(-en family)",
+      "distractor_logic": "四个词都属于-en word family，首字母不同。测解码精确度",
+      "irt": {"b": -1.6, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L6_VOC_C01",
+      "level": 6,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "hat",
+      "options": [
+        {"id": "A", "type": "picture", "content": "hat", "img": "img:hat"},
+        {"id": "B", "type": "picture", "content": "fish", "img": "img:fish"},
+        {"id": "C", "type": "picture", "content": "moon", "img": "img:moon"},
+        {"id": "D", "type": "picture", "content": "tree", "img": "img:tree"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:hat"],
+      "skill_focus": "确认题 — 高频CVC词，跨类别干扰（难度≈L4）",
+      "distractor_logic": "视觉和语义距离远，确认基本词汇识别能力",
+      "irt": {"b": -2.2, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L6_LIS_P01",
+      "level": 6,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "command_to_action",
+      "instruction_zh": "听一听，这个人让你做什么？",
+      "audio_content": "Touch your nose.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "child_touching_nose", "img": "img:touch_nose"},
+        {"id": "B", "type": "picture", "content": "child_touching_ear", "img": "img:touch_ear"},
+        {"id": "C", "type": "picture", "content": "child_touching_head", "img": "img:touch_head"},
+        {"id": "D", "type": "picture", "content": "child_touching_mouth", "img": "img:touch_mouth"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:Touch your nose."],
+      "skill_focus": "身体部位指令 — 同一动词+不同名词",
+      "distractor_logic": "动作相同(touch)，需听准身体部位名词",
+      "irt": {"b": -1.7, "a": 0.9, "c": 0.25}
+    },
+    {
+      "item_id": "L6_LIS_P02",
+      "level": 6,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "sentence_to_picture",
+      "instruction_zh": "听一听，哪张图和你听到的一样？",
+      "audio_content": "The ball is under the table.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "ball_under_table", "img": "img:ball_under_table"},
+        {"id": "B", "type": "picture", "content": "ball_on_table", "img": "img:ball_on_table"},
+        {"id": "C", "type": "picture", "content": "ball_next_to_table", "img": "img:ball_beside_table"},
+        {"id": "D", "type": "picture", "content": "ball_in_box", "img": "img:ball_in_box"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:The ball is under the table."],
+      "skill_focus": "介词听力理解 — under/on/next to",
+      "distractor_logic": "物品相同(ball+table)，介词不同。测空间关系词汇",
+      "irt": {"b": -1.5, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L6_LIS_C01",
+      "level": 6,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "command_to_action",
+      "instruction_zh": "听一听，这个人让你做什么？",
+      "audio_content": "Sit down, please.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "child_sitting", "img": "img:sitting"},
+        {"id": "B", "type": "picture", "content": "child_standing", "img": "img:standing"},
+        {"id": "C", "type": "picture", "content": "child_jumping", "img": "img:jumping"},
+        {"id": "D", "type": "picture", "content": "child_running", "img": "img:running"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:Sit down, please."],
+      "skill_focus": "确认题 — 最基础课堂指令（难度≈L3）",
+      "distractor_logic": "四个动作差异极大",
+      "irt": {"b": -2.3, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L6_READ_P01",
+      "level": 6,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "decode_word_to_picture",
+      "instruction_zh": "读一读这个词，它说的是哪个？",
+      "stimulus_word": "pig",
+      "options": [
+        {"id": "A", "type": "picture", "content": "pig", "img": "img:pig"},
+        {"id": "B", "type": "picture", "content": "pin", "img": "img:pin"},
+        {"id": "C", "type": "picture", "content": "pie", "img": "img:pie"},
+        {"id": "D", "type": "picture", "content": "pit", "img": "img:pit"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "CVC解码 — pi_ 尾辅音区分",
+      "distractor_logic": "首两个字母相同，尾辅音不同。测Phonics精确解码",
+      "irt": {"b": -1.6, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L6_READ_P02",
+      "level": 6,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "phonics_gap_fill",
+      "instruction_zh": "这个词缺了一个字母，看图片选正确的",
+      "picture_shown": "hat",
+      "stimulus_word": "h_t",
+      "options": [
+        {"id": "A", "type": "letter", "content": "a"},
+        {"id": "B", "type": "letter", "content": "o"},
+        {"id": "C", "type": "letter", "content": "i"},
+        {"id": "D", "type": "letter", "content": "u"}
+      ],
+      "correct": "A",
+      "media_required": ["img:hat"],
+      "skill_focus": "Phonics中间元音 — CVC medial vowel",
+      "distractor_logic": "h_t可变为hat/hot/hit/hut，需结合图片确定元音",
+      "irt": {"b": -1.5, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L6_READ_C01",
+      "level": 6,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "decode_word_to_picture",
+      "instruction_zh": "读一读这个词，它说的是哪个？",
+      "stimulus_word": "cat",
+      "options": [
+        {"id": "A", "type": "picture", "content": "dog", "img": "img:dog"},
+        {"id": "B", "type": "picture", "content": "cat", "img": "img:cat"},
+        {"id": "C", "type": "picture", "content": "sun", "img": "img:sun"},
+        {"id": "D", "type": "picture", "content": "cup", "img": "img:cup"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "确认题 — 最高频CVC词，跨类干扰（难度≈L3-4）",
+      "distractor_logic": "干扰项与cat视觉/语义差异大",
+      "irt": {"b": -2.3, "a": 0.6, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L7_VOC_P01",
+      "level": 7,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，这个人说的是什么？",
+      "audio_content": "kitchen",
+      "options": [
+        {"id": "A", "type": "picture", "content": "kitchen", "img": "img:kitchen"},
+        {"id": "B", "type": "picture", "content": "bedroom", "img": "img:bedroom"},
+        {"id": "C", "type": "picture", "content": "bathroom", "img": "img:bathroom"},
+        {"id": "D", "type": "picture", "content": "garden", "img": "img:garden"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:kitchen"],
+      "skill_focus": "房间/场所词汇 — 双音节",
+      "distractor_logic": "全部为家居空间，同一语义场内辨识",
+      "irt": {"b": -1.5, "a": 0.9, "c": 0.25}
+    },
+    {
+      "item_id": "L7_VOC_P02",
+      "level": 7,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "picture_to_word",
+      "instruction_zh": "看图片，哪个词说的是这个？",
+      "picture_shown": "frog",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "from"},
+        {"id": "B", "type": "text_en", "content": "frog"},
+        {"id": "C", "type": "text_en", "content": "flag"},
+        {"id": "D", "type": "text_en", "content": "fish"}
+      ],
+      "correct": "B",
+      "media_required": ["img:frog"],
+      "skill_focus": "CCVC词解码 — 辅音组合fr-/fl-",
+      "distractor_logic": "from/frog/flag均含辅音丛，测blend解码能力",
+      "irt": {"b": -1.3, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L7_VOC_C01",
+      "level": 7,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "door",
+      "options": [
+        {"id": "A", "type": "picture", "content": "door", "img": "img:door"},
+        {"id": "B", "type": "picture", "content": "apple", "img": "img:apple"},
+        {"id": "C", "type": "picture", "content": "star", "img": "img:star"},
+        {"id": "D", "type": "picture", "content": "hand", "img": "img:hand"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:door"],
+      "skill_focus": "确认题 — 高频词，跨类干扰（难度≈L4-5）",
+      "distractor_logic": "干扰项语义距离远",
+      "irt": {"b": -2.0, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L7_LIS_P01",
+      "level": 7,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "sentence_to_picture",
+      "instruction_zh": "听一听，哪张图和你听到的一样？",
+      "audio_content": "The boy is eating an apple.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "boy_eating_apple", "img": "img:boy_eat_apple"},
+        {"id": "B", "type": "picture", "content": "girl_eating_apple", "img": "img:girl_eat_apple"},
+        {"id": "C", "type": "picture", "content": "boy_eating_cake", "img": "img:boy_eat_cake"},
+        {"id": "D", "type": "picture", "content": "boy_drinking_milk", "img": "img:boy_drink_milk"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:The boy is eating an apple."],
+      "skill_focus": "三要素句理解 — 主语+动词+宾语同时辨识",
+      "distractor_logic": "B=主语错，C=宾语错，D=动词+宾语都错。需要三个词都听对",
+      "irt": {"b": -1.3, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L7_LIS_P02",
+      "level": 7,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "number_listening",
+      "instruction_zh": "听一听，这个人说了什么数字？",
+      "audio_content": "I have seven pencils.",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "5"},
+        {"id": "B", "type": "text_zh", "content": "6"},
+        {"id": "C", "type": "text_zh", "content": "7"},
+        {"id": "D", "type": "text_zh", "content": "8"}
+      ],
+      "correct": "C",
+      "media_required": ["audio_tts:I have seven pencils."],
+      "skill_focus": "数字听力提取 — 从句子中识别数字",
+      "distractor_logic": "相邻数字干扰，测精确听辨",
+      "irt": {"b": -1.4, "a": 0.9, "c": 0.25}
+    },
+    {
+      "item_id": "L7_LIS_C01",
+      "level": 7,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "sentence_to_picture",
+      "instruction_zh": "听一听，哪张图和你听到的一样？",
+      "audio_content": "The dog is big.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "big_dog", "img": "img:big_dog"},
+        {"id": "B", "type": "picture", "content": "small_dog", "img": "img:small_dog"},
+        {"id": "C", "type": "picture", "content": "big_cat", "img": "img:big_cat"},
+        {"id": "D", "type": "picture", "content": "small_cat", "img": "img:small_cat"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:The dog is big."],
+      "skill_focus": "确认题 — 简单句理解（难度≈L5）",
+      "distractor_logic": "主语×形容词交叉，但区分度低",
+      "irt": {"b": -1.8, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L7_READ_P01",
+      "level": 7,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "phonics_gap_fill",
+      "instruction_zh": "这个词缺了一个字母，看图片选正确的",
+      "picture_shown": "cup",
+      "stimulus_word": "c_p",
+      "options": [
+        {"id": "A", "type": "letter", "content": "a"},
+        {"id": "B", "type": "letter", "content": "u"},
+        {"id": "C", "type": "letter", "content": "o"},
+        {"id": "D", "type": "letter", "content": "i"}
+      ],
+      "correct": "B",
+      "media_required": ["img:cup"],
+      "skill_focus": "Phonics medial vowel — c_p家族 (cap/cup/cop)",
+      "distractor_logic": "cap和cop都是真词，需结合图片确认",
+      "irt": {"b": -1.3, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L7_READ_P02",
+      "level": 7,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "sentence_picture_match",
+      "instruction_zh": "读一读这句话，哪张图和它说的一样？",
+      "stimulus_sentence": "I see a red car.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "red_car", "img": "img:red_car"},
+        {"id": "B", "type": "picture", "content": "blue_car", "img": "img:blue_car"},
+        {"id": "C", "type": "picture", "content": "red_bus", "img": "img:red_bus"},
+        {"id": "D", "type": "picture", "content": "red_bike", "img": "img:red_bike"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "简单句阅读 — 颜色+名词组合理解",
+      "distractor_logic": "B=颜色错，C=名词错，D=名词错。需同时读准颜色和名词",
+      "irt": {"b": -1.2, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L7_READ_C01",
+      "level": 7,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "decode_word_to_picture",
+      "instruction_zh": "读一读这个词，它说的是哪个？",
+      "stimulus_word": "bus",
+      "options": [
+        {"id": "A", "type": "picture", "content": "bus", "img": "img:bus"},
+        {"id": "B", "type": "picture", "content": "bird", "img": "img:bird"},
+        {"id": "C", "type": "picture", "content": "sun", "img": "img:sun"},
+        {"id": "D", "type": "picture", "content": "egg", "img": "img:egg"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "确认题 — 高频CVC词解码（难度≈L5-6）",
+      "distractor_logic": "跨类别干扰，视觉差异大",
+      "irt": {"b": -1.9, "a": 0.6, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L8_VOC_P01",
+      "level": 8,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，这个人说的是什么？",
+      "audio_content": "breakfast",
+      "options": [
+        {"id": "A", "type": "picture", "content": "breakfast_scene", "img": "img:breakfast"},
+        {"id": "B", "type": "picture", "content": "lunch_scene", "img": "img:lunch"},
+        {"id": "C", "type": "picture", "content": "dinner_scene", "img": "img:dinner"},
+        {"id": "D", "type": "picture", "content": "snack", "img": "img:snack"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:breakfast"],
+      "skill_focus": "日常生活词汇 — 一日三餐",
+      "distractor_logic": "同一语义场（进餐场景），需精确区分",
+      "irt": {"b": -1.2, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L8_VOC_P02",
+      "level": 8,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "picture_to_word",
+      "instruction_zh": "看图片，哪个词说的是这个？",
+      "picture_shown": "snake",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "snake"},
+        {"id": "B", "type": "text_en", "content": "snack"},
+        {"id": "C", "type": "text_en", "content": "skate"},
+        {"id": "D", "type": "text_en", "content": "shake"}
+      ],
+      "correct": "A",
+      "media_required": ["img:snake"],
+      "skill_focus": "CVCe/blend词 — 高度近似拼写干扰",
+      "distractor_logic": "snake/snack仅差一个字母，skate/shake首辅音组不同。测精确拼写辨识",
+      "irt": {"b": -1.0, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L8_VOC_C01",
+      "level": 8,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "chair",
+      "options": [
+        {"id": "A", "type": "picture", "content": "chair", "img": "img:chair"},
+        {"id": "B", "type": "picture", "content": "ball", "img": "img:ball"},
+        {"id": "C", "type": "picture", "content": "star", "img": "img:star"},
+        {"id": "D", "type": "picture", "content": "egg", "img": "img:egg"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:chair"],
+      "skill_focus": "确认题 — 家居词汇（难度≈L6）",
+      "distractor_logic": "跨类别干扰",
+      "irt": {"b": -1.8, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L8_LIS_P01",
+      "level": 8,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "sentence_to_picture",
+      "instruction_zh": "听一听，哪张图和你听到的一样？",
+      "audio_content": "She is reading a book in the bedroom.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "girl_reading_bedroom", "img": "img:girl_read_bedroom"},
+        {"id": "B", "type": "picture", "content": "girl_reading_kitchen", "img": "img:girl_read_kitchen"},
+        {"id": "C", "type": "picture", "content": "boy_reading_bedroom", "img": "img:boy_read_bedroom"},
+        {"id": "D", "type": "picture", "content": "girl_writing_bedroom", "img": "img:girl_write_bedroom"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:She is reading a book in the bedroom."],
+      "skill_focus": "长句听力 — 主语+动作+地点三要素",
+      "distractor_logic": "B=地点错，C=主语性别错，D=动作错",
+      "irt": {"b": -1.0, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L8_LIS_P02",
+      "level": 8,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "question_response",
+      "instruction_zh": "听一个问题，选最好的回答",
+      "audio_content": "What color is your bag?",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "It's under the desk."},
+        {"id": "B", "type": "text_zh", "content": "It's my bag."},
+        {"id": "C", "type": "text_zh", "content": "It's blue."},
+        {"id": "D", "type": "text_zh", "content": "I like bags."}
+      ],
+      "correct": "C",
+      "media_required": ["audio_tts:What color is your bag?"],
+      "skill_focus": "Wh-问句理解 — 识别what color并匹配答案",
+      "distractor_logic": "每个干扰项都和bag相关，但只有C回答了颜色",
+      "irt": {"b": -1.0, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L8_LIS_C01",
+      "level": 8,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "sentence_to_picture",
+      "instruction_zh": "听一听，哪张图和你听到的一样？",
+      "audio_content": "The girl is happy.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "happy_girl", "img": "img:happy_girl"},
+        {"id": "B", "type": "picture", "content": "sad_girl", "img": "img:sad_girl"},
+        {"id": "C", "type": "picture", "content": "happy_boy", "img": "img:happy_boy"},
+        {"id": "D", "type": "picture", "content": "angry_girl", "img": "img:angry_girl"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:The girl is happy."],
+      "skill_focus": "确认题 — 简单形容词句（难度≈L6）",
+      "distractor_logic": "主语×情绪交叉，低干扰",
+      "irt": {"b": -1.7, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L8_READ_P01",
+      "level": 8,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "sentence_picture_match",
+      "instruction_zh": "读一读这句话，哪张图和它说的一样？",
+      "stimulus_sentence": "The cat is on the bed.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "cat_on_bed", "img": "img:cat_on_bed"},
+        {"id": "B", "type": "picture", "content": "cat_under_bed", "img": "img:cat_under_bed"},
+        {"id": "C", "type": "picture", "content": "dog_on_bed", "img": "img:dog_on_bed"},
+        {"id": "D", "type": "picture", "content": "cat_on_chair", "img": "img:cat_on_chair"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "句子阅读 — 主语+介词+地点",
+      "distractor_logic": "B=介词错，C=主语错，D=地点错。测三要素同时读准",
+      "irt": {"b": -1.0, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L8_READ_P02",
+      "level": 8,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "sight_word_recognition",
+      "instruction_zh": "请找到这个词：said",
+      "stimulus_word": "said",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "sad"},
+        {"id": "B", "type": "text_en", "content": "said"},
+        {"id": "C", "type": "text_en", "content": "side"},
+        {"id": "D", "type": "text_en", "content": "sand"}
+      ],
+      "correct": "B",
+      "media_required": [],
+      "skill_focus": "Sight word识别 — 不规则拼写词",
+      "distractor_logic": "said/sad仅差一个字母，side/sand拼写近似。Dolch grade 1词",
+      "irt": {"b": -0.9, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L8_READ_C01",
+      "level": 8,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "sentence_picture_match",
+      "instruction_zh": "读一读这句话，哪张图和它说的一样？",
+      "stimulus_sentence": "I see a dog.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "cat", "img": "img:cat"},
+        {"id": "B", "type": "picture", "content": "fish", "img": "img:fish"},
+        {"id": "C", "type": "picture", "content": "dog", "img": "img:dog"},
+        {"id": "D", "type": "picture", "content": "bird", "img": "img:bird"}
+      ],
+      "correct": "C",
+      "media_required": [],
+      "skill_focus": "确认题 — 极简单句阅读（难度≈L6）",
+      "distractor_logic": "不同动物，只需读准最后一个名词",
+      "irt": {"b": -1.8, "a": 0.6, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L9_VOC_P01",
+      "level": 9,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，这个人说了什么天气？",
+      "audio_content": "It's rainy today.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "rainy", "img": "img:rainy"},
+        {"id": "B", "type": "picture", "content": "sunny", "img": "img:sunny"},
+        {"id": "C", "type": "picture", "content": "cloudy", "img": "img:cloudy"},
+        {"id": "D", "type": "picture", "content": "snowy", "img": "img:snowy"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:It's rainy today."],
+      "skill_focus": "天气词汇 — 从句子中提取形容词",
+      "distractor_logic": "四种天气图片，需精确听出rainy",
+      "irt": {"b": -0.8, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L9_VOC_P02",
+      "level": 9,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "picture_to_word",
+      "instruction_zh": "看图片，哪个词说的是这个？",
+      "picture_shown": "train",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "train"},
+        {"id": "B", "type": "text_en", "content": "brain"},
+        {"id": "C", "type": "text_en", "content": "rain"},
+        {"id": "D", "type": "text_en", "content": "trail"}
+      ],
+      "correct": "A",
+      "media_required": ["img:train"],
+      "skill_focus": "元音组合词 — ai digraph辨识",
+      "distractor_logic": "四个词均含ai，首辅音或尾辅音不同。测blend+digraph解码",
+      "irt": {"b": -0.7, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L9_VOC_C01",
+      "level": 9,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，这个人在做什么？",
+      "audio_content": "swimming",
+      "options": [
+        {"id": "A", "type": "picture", "content": "swimming", "img": "img:swimming"},
+        {"id": "B", "type": "picture", "content": "reading", "img": "img:reading"},
+        {"id": "C", "type": "picture", "content": "sleeping", "img": "img:sleeping"},
+        {"id": "D", "type": "picture", "content": "eating", "img": "img:eating"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:swimming"],
+      "skill_focus": "确认题 — 动作动词（难度≈L7）",
+      "distractor_logic": "四个动作差异大",
+      "irt": {"b": -1.5, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L9_LIS_P01",
+      "level": 9,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_dialogue",
+      "instruction_zh": "听一段对话，回答问题",
+      "audio_content": "A: Do you like ice cream? B: Yes, I do! I like chocolate ice cream.",
+      "question_zh": "这个人喜欢什么口味的冰淇淋？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "草莓"},
+        {"id": "B", "type": "text_zh", "content": "香草"},
+        {"id": "C", "type": "text_zh", "content": "巧克力"},
+        {"id": "D", "type": "text_zh", "content": "芒果"}
+      ],
+      "correct": "C",
+      "media_required": ["audio_tts_dialogue:Do you like ice cream? Yes, I do! I like chocolate ice cream."],
+      "skill_focus": "对话听力 — 提取具体信息",
+      "distractor_logic": "需听懂chocolate并知道其含义，中文选项降低阅读负担",
+      "irt": {"b": -0.7, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L9_LIS_P02",
+      "level": 9,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "sentence_to_picture",
+      "instruction_zh": "听一听，哪张图和你听到的一样？",
+      "audio_content": "There are three birds in the tree.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "3_birds_tree", "img": "img:3birds_tree"},
+        {"id": "B", "type": "picture", "content": "2_birds_tree", "img": "img:2birds_tree"},
+        {"id": "C", "type": "picture", "content": "3_birds_roof", "img": "img:3birds_roof"},
+        {"id": "D", "type": "picture", "content": "3_cats_tree", "img": "img:3cats_tree"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:There are three birds in the tree."],
+      "skill_focus": "数量+名词+地点三重信息句",
+      "distractor_logic": "B=数量错，C=地点错，D=名词错",
+      "irt": {"b": -0.6, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L9_LIS_C01",
+      "level": 9,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "sentence_to_picture",
+      "instruction_zh": "听一听，哪张图和你听到的一样？",
+      "audio_content": "The boy has a red hat.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "boy_red_hat", "img": "img:boy_red_hat"},
+        {"id": "B", "type": "picture", "content": "boy_blue_hat", "img": "img:boy_blue_hat"},
+        {"id": "C", "type": "picture", "content": "girl_red_hat", "img": "img:girl_red_hat"},
+        {"id": "D", "type": "picture", "content": "boy_no_hat", "img": "img:boy_no_hat"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:The boy has a red hat."],
+      "skill_focus": "确认题 — 简单属性句（难度≈L7）",
+      "distractor_logic": "主语×颜色交叉",
+      "irt": {"b": -1.4, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L9_READ_P01",
+      "level": 9,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "sentence_true_false",
+      "instruction_zh": "看图片，读句子，这句话对不对？",
+      "picture_shown": "sunny_park_scene",
+      "stimulus_sentence": "It is raining.",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "对 ✓"},
+        {"id": "B", "type": "text_zh", "content": "不对 ✗"}
+      ],
+      "correct": "B",
+      "media_required": ["img:sunny_park"],
+      "skill_focus": "句子阅读+图片验证 — 判断文图是否一致",
+      "distractor_logic": "图片是晴天，句子说下雨，测阅读理解+视觉对比",
+      "irt": {"b": -0.7, "a": 1.0, "c": 0.5}
+    },
+    {
+      "item_id": "L9_READ_P02",
+      "level": 9,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "phonics_gap_fill",
+      "instruction_zh": "这个词缺了字母，看图片选正确的",
+      "picture_shown": "rain",
+      "stimulus_word": "r__n",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "ai"},
+        {"id": "B", "type": "text_en", "content": "oa"},
+        {"id": "C", "type": "text_en", "content": "ea"},
+        {"id": "D", "type": "text_en", "content": "ee"}
+      ],
+      "correct": "A",
+      "media_required": ["img:rain"],
+      "skill_focus": "元音组合(digraph) — ai/oa/ea/ee辨识",
+      "distractor_logic": "从CVC中间单字母升级到双字母元音组合，Phonics进阶",
+      "irt": {"b": -0.5, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L9_READ_C01",
+      "level": 9,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "phonics_gap_fill",
+      "instruction_zh": "这个词缺了一个字母，看图片选正确的",
+      "picture_shown": "pen",
+      "stimulus_word": "p_n",
+      "options": [
+        {"id": "A", "type": "letter", "content": "a"},
+        {"id": "B", "type": "letter", "content": "e"},
+        {"id": "C", "type": "letter", "content": "i"},
+        {"id": "D", "type": "letter", "content": "o"}
+      ],
+      "correct": "B",
+      "media_required": ["img:pen"],
+      "skill_focus": "确认题 — CVC单元音gap-fill（难度≈L6-7）",
+      "distractor_logic": "pan/pen/pin/pon，回退到基本Phonics",
+      "irt": {"b": -1.5, "a": 0.6, "c": 0.25}
+    },
+
+
+    {
+      "item_id": "L10_VOC_P01",
+      "level": 10,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，这个人说了什么？",
+      "audio_content": "My sister is a doctor.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "female_doctor", "img": "img:female_doctor"},
+        {"id": "B", "type": "picture", "content": "female_teacher", "img": "img:female_teacher"},
+        {"id": "C", "type": "picture", "content": "female_nurse", "img": "img:female_nurse"},
+        {"id": "D", "type": "picture", "content": "female_police", "img": "img:female_police"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:My sister is a doctor."],
+      "skill_focus": "职业词汇 — 从句子中提取关键名词",
+      "distractor_logic": "全部为女性职业图，需精确听出doctor",
+      "irt": {"b": -0.5, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L10_VOC_P02",
+      "level": 10,
+      "dimension": "vocabulary",
+      "role": "primary",
+      "item_type": "picture_to_word",
+      "instruction_zh": "看图片，哪个词说的是这个？",
+      "picture_shown": "cake",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "cake"},
+        {"id": "B", "type": "text_en", "content": "coke"},
+        {"id": "C", "type": "text_en", "content": "cook"},
+        {"id": "D", "type": "text_en", "content": "cape"}
+      ],
+      "correct": "A",
+      "media_required": ["img:cake"],
+      "skill_focus": "CVCe词(magic-e) — cake/coke/cape辨识",
+      "distractor_logic": "cake/cape都是magic-e但元音不同，coke/cook是不同拼读规则",
+      "irt": {"b": -0.4, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L10_VOC_C01",
+      "level": 10,
+      "dimension": "vocabulary",
+      "role": "confirm",
+      "item_type": "audio_to_picture",
+      "instruction_zh": "听一听，点一下你听到的东西",
+      "audio_content": "window",
+      "options": [
+        {"id": "A", "type": "picture", "content": "window", "img": "img:window"},
+        {"id": "B", "type": "picture", "content": "flower", "img": "img:flower"},
+        {"id": "C", "type": "picture", "content": "pencil", "img": "img:pencil"},
+        {"id": "D", "type": "picture", "content": "banana", "img": "img:banana"}
+      ],
+      "correct": "A",
+      "media_required": ["audio_tts:window"],
+      "skill_focus": "确认题 — 双音节日常词（难度≈L7-8）",
+      "distractor_logic": "跨类别干扰",
+      "irt": {"b": -1.3, "a": 0.6, "c": 0.25}
+    },
+
+    {
+      "item_id": "L10_LIS_P01",
+      "level": 10,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_dialogue",
+      "instruction_zh": "听一段对话，回答问题",
+      "audio_content": "A: Where is my book? B: It's on the table, next to the lamp.",
+      "question_zh": "书在哪里？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "椅子上"},
+        {"id": "B", "type": "text_zh", "content": "桌子上，灯旁边"},
+        {"id": "C", "type": "text_zh", "content": "床底下"},
+        {"id": "D", "type": "text_zh", "content": "书包里"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts_dialogue:Where is my book? It's on the table, next to the lamp."],
+      "skill_focus": "对话听力 — 位置信息提取（介词+名词组合）",
+      "distractor_logic": "需同时听出on the table和next to the lamp两个信息",
+      "irt": {"b": -0.3, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L10_LIS_P02",
+      "level": 10,
+      "dimension": "listening",
+      "role": "primary",
+      "item_type": "short_story_listening",
+      "instruction_zh": "听一小段故事，回答问题",
+      "audio_content": "Tom gets up at seven o'clock. He eats breakfast and goes to school. After school, he plays football with his friends.",
+      "question_zh": "Tom放学后做什么？",
+      "options": [
+        {"id": "A", "type": "text_zh", "content": "看电视"},
+        {"id": "B", "type": "text_zh", "content": "踢足球"},
+        {"id": "C", "type": "text_zh", "content": "做作业"},
+        {"id": "D", "type": "text_zh", "content": "吃晚饭"}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:Tom gets up at seven o'clock. He eats breakfast and goes to school. After school, he plays football with his friends."],
+      "skill_focus": "短段落听力 — 3句叙事，定位特定时间节点信息",
+      "distractor_logic": "故事有3个时间节点(起床/上学/放学)，需定位after school的信息",
+      "irt": {"b": -0.2, "a": 1.2, "c": 0.25}
+    },
+    {
+      "item_id": "L10_LIS_C01",
+      "level": 10,
+      "dimension": "listening",
+      "role": "confirm",
+      "item_type": "question_response",
+      "instruction_zh": "听一个问题，选最好的回答",
+      "audio_content": "How old are you?",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "I'm fine."},
+        {"id": "B", "type": "text_en", "content": "I'm eight."},
+        {"id": "C", "type": "text_en", "content": "I'm a boy."},
+        {"id": "D", "type": "text_en", "content": "I'm at home."}
+      ],
+      "correct": "B",
+      "media_required": ["audio_tts:How old are you?"],
+      "skill_focus": "确认题 — 基础问答配对（难度≈L7-8）",
+      "distractor_logic": "所有选项都是I'm...结构，但只有B回答了年龄",
+      "irt": {"b": -1.2, "a": 0.7, "c": 0.25}
+    },
+
+    {
+      "item_id": "L10_READ_P01",
+      "level": 10,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "sentence_picture_match",
+      "instruction_zh": "读一读这句话，哪张图和它说的一样？",
+      "stimulus_sentence": "The girl is riding a bike in the park.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "girl_bike_park", "img": "img:girl_bike_park"},
+        {"id": "B", "type": "picture", "content": "boy_bike_park", "img": "img:boy_bike_park"},
+        {"id": "C", "type": "picture", "content": "girl_bike_school", "img": "img:girl_bike_school"},
+        {"id": "D", "type": "picture", "content": "girl_running_park", "img": "img:girl_run_park"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "长句阅读 — 主语+动作+方式+地点四要素",
+      "distractor_logic": "B=主语错，C=地点错，D=动作错。最长的句子阅读题",
+      "irt": {"b": -0.3, "a": 1.1, "c": 0.25}
+    },
+    {
+      "item_id": "L10_READ_P02",
+      "level": 10,
+      "dimension": "reading",
+      "role": "primary",
+      "item_type": "word_category_sort",
+      "instruction_zh": "下面四个词，哪个和其他三个不是一类？",
+      "options": [
+        {"id": "A", "type": "text_en", "content": "apple"},
+        {"id": "B", "type": "text_en", "content": "banana"},
+        {"id": "C", "type": "text_en", "content": "orange"},
+        {"id": "D", "type": "text_en", "content": "table"}
+      ],
+      "correct": "D",
+      "media_required": [],
+      "skill_focus": "词汇阅读+分类 — 需读懂四个词并归类",
+      "distractor_logic": "三个水果+一个家具，需同时具备解码能力和语义知识",
+      "irt": {"b": -0.3, "a": 1.0, "c": 0.25}
+    },
+    {
+      "item_id": "L10_READ_C01",
+      "level": 10,
+      "dimension": "reading",
+      "role": "confirm",
+      "item_type": "sentence_picture_match",
+      "instruction_zh": "读一读这句话，哪张图和它说的一样？",
+      "stimulus_sentence": "The boy is drinking milk.",
+      "options": [
+        {"id": "A", "type": "picture", "content": "boy_drink_milk", "img": "img:boy_drink_milk"},
+        {"id": "B", "type": "picture", "content": "boy_eat_apple", "img": "img:boy_eat_apple"},
+        {"id": "C", "type": "picture", "content": "girl_drink_milk", "img": "img:girl_drink_milk"},
+        {"id": "D", "type": "picture", "content": "boy_drink_juice", "img": "img:boy_drink_juice"}
+      ],
+      "correct": "A",
+      "media_required": [],
+      "skill_focus": "确认题 — 简单SVO句阅读（难度≈L7-8）",
+      "distractor_logic": "主语×动作×宾语交叉，但差异明显",
+      "irt": {"b": -1.2, "a": 0.6, "c": 0.25}
+    }
+  ]
+}
